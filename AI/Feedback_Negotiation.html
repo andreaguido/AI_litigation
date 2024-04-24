@@ -1,0 +1,56 @@
+{{ block title }}
+Results from Negotiation Stage
+{{ endblock }}
+
+{{ block content }}
+
+
+{{ if group.final_agree == 0 and player.subsession.treatment == "A" }}
+
+You and your paired worker <b>did not reach an agreement</b>.<br><br>
+<!--- XXX change depending on treatment variable -->
+<div class="card card-header" align="center">
+
+    An algorithm designed to mimic the decisions made by actual managers has decided
+    the percentage of the total production that you and the other worker will obtain from each task.
+    Remember that the algorithm does not have access to the proposal you and the other worker made in the
+    negotiation stage or the messages that you exchanged in the chat.
+
+</div>
+{{ elif group.final_agree == 0 and player.subsession.treatment == "M" }}
+
+MANAGER
+
+
+{{ else }}
+<div class="card card-header" align="center">
+    You have reached an agreement in the negotiation stage.
+</div>
+
+{{ endif }}
+
+These percentages shown below will be used in the production stage that follows. <br><br>
+
+Press the button below to proceed to the production stage.
+
+
+
+<table class="table table-primary">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Task 1</th>
+        <th>Task 2</th>
+    </tr>
+    <tr>
+        <td>Your final percentage :</td>
+        <td>{{ player.production_cost_1 }} %</td>
+        <td>{{ player.production_cost_2 }} %</td>
+    </tr>
+
+    </thead>
+</table>
+
+{{ next_button }}
+
+{{ endblock }}

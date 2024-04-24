@@ -1,0 +1,58 @@
+{{ block title }}
+    Results from Production Stage {{ if player.round_number == 1}} (Part I) {{ else }} - (Period # {{ round }}) {{ endif }}
+{{ endblock }}
+
+{{ block content }}
+<table class="table table-primary">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Task 1</th>
+        <th>Task 2</th>
+    </tr>
+    <tr>
+        <td>Points you allocated to the Group Account :</td>
+        <td>{{ player.prod_round_1 }}</td>
+        <td>{{ player.prod_round_2 }}</td>
+    </tr>
+    <tr>
+        <td>Points the other worker allocated to the Group Account :</td>
+        <td>{{ other_contribution_1 }}</td>
+        <td>{{ other_contribution_2 }}</td>
+    </tr>
+    <tr>
+        <td>Total points in the Group Account :</td>
+        <td>{{ g1 }}</td>
+        <td>{{ g2 }}</td>
+    </tr>
+    <tr>
+        <td>Your percentage :</td>
+        <td>{{ player.production_cost_1 }} %</td>
+        <td>{{ player.production_cost_2 }} %</td>
+    </tr>
+
+    <tr>
+        <td>Points you get from the Group Account :</td>
+        <td>{{ c1|to0 }} </td>
+        <td>{{ c2|to0 }} </td>
+    </tr>
+
+    <tr>
+        <td>Points in your Private Account :</td>
+        <td>{{ p1 }}</td>
+        <td>{{ p2 }}</td>
+    </tr>
+
+    <tr>
+        <td>Your total payoff (Private + Common account):</td>
+        <td>{{ player.payoff_round_1|to0 }}</td>
+        <td>{{ player.payoff_round_2|to0 }}</td>
+    </tr>
+    </thead>
+</table>
+
+    {{ next_button }}
+
+{{ endblock }}
+
+

@@ -1,0 +1,27 @@
+{{ block title }}{{ endblock }}
+{{ block content }}
+
+<div class="card bg-light">
+    <div class="card-body">
+        <p>
+            A continuación, se presentan varias situaciones en las que deberá elegir entre dos tomas de decisiones.
+            <br><br>
+            En la siguiente pantalla se le pedirá que tome seis decisiones.
+            <br><br>
+            En cada problema de decisión se le emparejará con un participante diferente.
+            <br><br>
+            Una vez completada la encuesta, usted y los demás participantes recibirán una remuneración en función de sus elecciones. En concreto, cada problema de decisión tiene dos papeles posibles: uno activo y otro pasivo. Se le pagará por un único problema de decisión seleccionado al azar entre los seis y, dentro de ese problema de decisión, su papel final también se seleccionará al azar. No se utiliza el engaño.
+            <br><br>
+            Cada problema de decisión consiste en elegir entre dos repartos de puntos entre usted y el otro participante. La opción A será la misma en las seis decisiones: 10 puntos para usted y 10 puntos para el otro participante. Sin embargo, el reparto en la opción B cambiará cada vez.
+            <br><br>
+            Tenga en cuenta que el otro participante nunca será informado de su identidad personal y que usted no será informado de la identidad personal del otro participante.
+
+        </p>
+    </div>
+</div>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}

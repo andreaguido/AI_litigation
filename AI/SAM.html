@@ -1,0 +1,294 @@
+{{ block title }}Final Questionnaire{{ endblock }}
+
+{{ block scripts }}
+<script>
+function toggleText(){
+  var x = document.getElementById("Myid");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+// take values from the form
+// for sam1
+var x = document.querySelectorAll(".sam1");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        var val = this.defaultValue;
+        document.getElementById('SAM_1').value = val;
+    });
+});
+
+// for sam2
+var x = document.querySelectorAll(".sam2");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        var val = this.defaultValue;
+        document.getElementById('SAM_2').value = val;
+    });
+});
+
+// for sam3
+var x = document.querySelectorAll(".sam3");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        var val = this.defaultValue;
+        document.getElementById('SAM_3').value = val;
+    });
+});
+
+</script>
+<style>
+    img {max-width: 100px}
+    table {max-width: 100%}
+    td {max-width: 11%;
+        text-align: center;}
+</style>
+{{ endblock }}
+
+{{ block content }}
+
+
+<div class="card bg-light">
+    <div class="card-body">
+
+    <p>
+        A continuación, le presentamos tres imágenes en referencia a su estado de ánimo.
+        Cada imagen contiene unas combinaciones de adjetivos que utilizará para calificar tus sentimientos sobre la imagen
+        respecto a su estado de ánimo actual. Algunas combinaciones de adjetivos pueden parecer inusuales, pero probablemente
+        se sentirá más de una manera sobre una combinación que sobre otra. Por lo tanto, en cada línea, elija de 1 a 9 qué
+        imagen representa más su estado de ánimo según los adjetivos indicados.
+    </p>
+    </div>
+</div>
+<br><br>
+
+<div class="card bg-light">
+    <div class="card-body">
+    <p>
+        Seleccione el número que mejor se adapte a tu estado de ánimo: <br><br>
+        Nota: <br>
+        1 representa sentirse "infeliz, molesto, insatisfecho, melancólico, desesperado o aburrido" <br>
+        9 representa sentirse "feliz, complacido, satisfecho, contento, esperanzado, relajado"
+    </p>
+        <table>
+            <tr>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <input class="sam1" name="sam_1" type="radio" value="1" id="sam_11"><label for="sam_1">1</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="2" id="sam_12"><label for="sam_1">2</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="3" id="sam_13"><label for="sam_1">3</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="4" id="sam_14"><label for="sam_1">4</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="5" id="sam_15"><label for="sam_1">5</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="6" id="sam_16"><label for="sam_1">6</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="7" id="sam_17"><label for="sam_1">7</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="8" id="sam_18"><label for="sam_1">8</label>
+                </td>
+                <td>
+                    <input class="sam1" name="sam_1" type="radio" value="9" id="sam_19"><label for="sam_1">9</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<br><br>
+
+<div class="card bg-light">
+    <div class="card-body">
+    <p>
+        Seleccione el número que mejor se adapte a tu estado de ánimo: <br><br>
+        Nota: <br>
+        1 representa sentirse "relajado, tranquilo, perezoso, apagado, somnoliento, sin despertar" <br>
+        9 representa sentirse "estimulado, excitado, frenético, nervioso, muy despierto, excitado"
+
+    </p>
+    </div>
+    <div class="card-body">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <input class="sam2" name="sam_2" type="radio" value="1" id="sam_21"><label for="sam_2">1</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="2" id="sam_22"><label for="sam_2">2</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="3" id="sam_23"><label for="sam_2">3</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="4" id="sam_24"><label for="sam_2">4</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="5" id="sam_25"><label for="sam_2">5</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="6" id="sam_26"><label for="sam_2">6</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="7" id="sam_27"><label for="sam_2">7</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="8" id="sam_28"><label for="sam_2">8</label>
+                </td>
+                <td>
+                    <input class="sam2" name="sam_2" type="radio" value="9" id="sam_29"><label for="sam_2">9</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<br><br>
+
+<div class="card bg-light">
+    <div class="card-body">
+    <p>
+        Seleccione el número que mejor se adapte a su estado de ánimo: <br><br>
+        Nota: <br>
+        1 representa sentirse "controlado, influenciado, cuidado, asombrado, sumiso" <br>
+        9 representa sentirse "controlador, influyente, en control, importante, dominante" <br>
+
+    </p>
+        <table>
+            <tr>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <img src="{{static '2010526.png'}}" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <input class="sam3" name="sam_3" type="radio" value="1" id="sam_31"><label for="sam_3">1</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="2" id="sam_32"><label for="sam_3">2</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="3" id="sam_33"><label for="sam_3">3</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="4" id="sam_34"><label for="sam_3">4</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="5" id="sam_35"><label for="sam_3">5</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="6" id="sam_36"><label for="sam_3">6</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="7" id="sam_7"><label for="sam_1">7</label>
+                </td>
+                <td>
+                    <input class="sam3" name="sam_3" type="radio" value="8" id="sam_8"><label for="sam_1">8</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<input type="hidden" name="SAM_1" id="SAM_1">
+<input type="hidden" name="SAM_2" id="SAM_2">
+<input type="hidden" name="SAM_3" id="SAM_3">
+
+ {{ next_button }}
+
+{{ endblock }}

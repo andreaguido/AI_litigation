@@ -1,0 +1,70 @@
+{{ block title }}
+    Production Stage - {{ if player.round_number == 1 }} (Part I) {{ else }} (Period #{{ round }}) {{ endif }}
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+function toggleText(){
+  var x = document.getElementById("Myid");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+{{ endblock }}
+
+{{ block content }}
+
+In this stage, each group member will receive 20 points per task. <br>
+
+It's up to you to decide how many of each 20 points you wish to allocate to the group project per each task. <br>
+
+The points not allocated to the group account will be allocated to the private account. <br>
+
+You can find a summary of the instructions at the bottom of this page.
+
+<br><br>
+
+
+<table class="table table-primary">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Task 1</th>
+        <th>Task 2</th>
+    </tr>
+    <tr>
+        <td>Your Percentage:</td>
+        <td>{{ player.production_cost_1 }} %</td>
+        <td>{{ player.production_cost_2 }} %</td>
+    </tr>
+    <tr>
+        <td><p>Points to the Group Account</p></td>
+        <td>{{ formfield 'prod_round_1' }}</td>
+        <td>{{ formfield 'prod_round_2' }}</td>
+    </tr>
+    </thead>
+</table>
+    {{ next_button }}
+
+<style>
+    table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+    td {word-wrap: break-word;}
+</style>
+
+
+<input type="button" style="align-items: center" value="Click to re-read instructions" onclick="toggleText()">
+
+<div id="Myid" style="display: none;">
+
+    {{ include_sibling 'tabs_reduced.html' }}
+
+</div>
+
+{{ endblock }}

@@ -1,0 +1,40 @@
+{{ block title }}Comprehension Questions{{ endblock }}
+
+{{ block scripts }}
+<script>
+function toggleText(){
+  var x = document.getElementById("Myid");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+We ask you to answer a few comprehension questions to check your understanding of the instructions. You need to answer the below questions
+correctly in order to be able to move to the next phase of the study.
+
+In case your answer is not correct, you can always revise it and then click <u>Next</u>. <br><br>
+
+In case you need to look back at the instructions, you can click on the button placed at the bottom of the page.
+    </div>
+</div>
+    {{ formfields }}
+
+    {{ next_button }}
+
+<input type="button" style="align-items: center" value="Click to re-read instructions below" onclick="toggleText()">
+
+<div id="Myid" style="display: none;">
+
+    {{ include_sibling 'tabs_reduced.html' }}
+
+</div>
+
+{{ endblock }}

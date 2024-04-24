@@ -1,0 +1,197 @@
+{{ block title }}
+Negotiation
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+    How many points should your team contribute to the shared pool?
+    Once a majority agree on an amount,
+    you can proceed to the next page.
+</p>
+
+<h4>Chat with teammate</h4>
+{{ chat }}
+
+<br><br>
+<div class="ciao">
+        <!--------- FIRST TASK ---------->
+    <table class="table table-primary table-striped tabella">
+
+        {{ for choice in t_tasks }}
+        <tr>
+            {{ for task in choice}}
+            <th>{{ task.cost }}</th>
+            <td>
+                <label class="switch">
+                    <input type="radio" name="toggle-group" value="{{ task.labels }}" id="radio-{{ task.labels }}-{{task.task}}" onclick="vote(this)">
+                    <span class="slider round"></span>
+                </label>
+            </td>
+            <td>
+                <ul id="votes-for-{{ task.labels }}-{{ task.task }}" class="clear-on-redraw"></ul>
+            </td>
+            {{ endfor }}
+        </tr>
+        {{ endfor }}
+    </table>
+        <!--------- SECOND TASK ---------->
+
+</div>
+
+<div style="visibility: hidden">
+
+<h4>Undecided players</h4>
+<ul id="undecided" class="clear-on-redraw"></ul>
+
+</div>
+
+<script>
+    let redrawableNodes = document.getElementsByClassName('clear-on-redraw');
+
+    function vote(btn) {
+        liveSend({vote_1: btn.value});
+        btn.style.backgroundColor='salmon';
+    }
+
+    function vote2(btn) {
+        liveSend({vote_2: btn.value});
+    }
+
+    function vote3(btn) {
+        liveSend({vote_3: btn.value});
+    }
+
+    function vote4(btn) {
+        liveSend({vote_4: btn.value});
+    }
+
+    function liveRecv(data) {
+        if ('finished' in data) {
+            document.getElementById('form').submit();
+        }
+
+        if ('votes' in data) {
+            for (let ele of redrawableNodes) {
+                ele.innerHTML = '';
+            }
+            for (let [id_in_group, vote_1, vote_2, vote_3, vote_4] of data.votes) {
+                let playerName = `${id_in_group}`;
+                let isMe = id_in_group === js_vars.my_id;
+                let isNull = vote_1 === null;
+                let isNull2 = vote_2 === null;
+                let isNull3 = vote_3 === null;
+                let isNull4 = vote_4 === null;
+                console.log("IS NULLs :", isNull, isNull2, isNull3, isNull4);
+                console.log("This is data.votes ", data.votes);
+
+                if (isMe) {
+                    playerName = '';
+                    if (!isNull) {
+                        document.getElementById(`radio-${vote_1}-1`).checked = true;
+                        console.log("DATA ", data.votes);
+                    }
+                    if (!isNull2) {
+                        document.getElementById(`radio-${vote_2}-2`).checked = true;
+                        console.log("DATA ", data.votes);
+                    }
+                    if (!isNull3) {
+                        document.getElementById(`radio-${vote_3}-3`).checked = true;
+                        console.log("DATA ", data.votes);
+                    }
+                    if (!isNull4) {
+                        document.getElementById(`radio-${vote_4}-4`).checked = true;
+                        console.log("DATA ", data.votes);
+                    }
+                }
+                let bulletListId = isNull ? 'undecided' : `votes-for-${vote_1}-1`;
+                let bulletListId2 = isNull2 ? 'undecided' : `votes-for-${vote_2}-2`;
+                let bulletListId3 = isNull3 ? 'undecided' : `votes-for-${vote_3}-3`;
+                let bulletListId4 = isNull4 ? 'undecided' : `votes-for-${vote_4}-4`;
+                console.log("Isnull = ", isNull);
+                console.log("CIAOOOO", bulletListId);
+                let bulletList = document.getElementById(bulletListId);
+                let bulletList2 = document.getElementById(bulletListId2);
+                let bulletList3 = document.getElementById(bulletListId3);
+                let bulletList4 = document.getElementById(bulletListId4);
+                if (!isMe) {
+                    bulletList.innerHTML += `<img style="display:block;" width="10%" height="10%" src="{{ static '2010526.png'}}" />`;
+                    bulletList2.innerHTML += `X`;
+                    bulletList3.innerHTML += `X`;
+                    bulletList4.innerHTML += `X`;
+                }
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        liveSend({});
+    });
+
+</script>
+
+<style>
+    .otree-timer {text-align: center}
+    .ciao {display: flex}
+    .tabella {flex:25%; text-align: center;}
+    /*tr {height: 70px}*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 14px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input[type="radio"]:checked + .slider {
+    background-color: #2196F3; /* Change color when selected */
+}
+
+input[type="radio"]:focus + .slider {
+    box-shadow: 0 0 1px #2196F3; /* Add focus effect */
+}
+
+input[type="radio"]:checked + .slider:before {
+    transform: translateX(26px); /* Move the slider */
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 14px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+</style>
+{{ endblock }}
