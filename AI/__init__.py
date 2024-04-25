@@ -165,8 +165,6 @@ class Player(BasePlayer):
     delighted = models.IntegerField(label = "Delighted", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     nervous = models.IntegerField(label = "Nervous", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     happy = models.IntegerField(label = "Happy", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    # XXX MISSING XXX joyful = models.IntegerField(label = "Joyful", choices=range(0, 10), widget=widgets.RadioSelectHorizontal)
-
     # quiz variables
     ## Quiz part I
     quiz1 = models.IntegerField(
@@ -279,9 +277,6 @@ class Player(BasePlayer):
     perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[1,2,3,4,5], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
     perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[1,2,3,4,5], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
     perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[1,2,3,4,5], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
-
-    # Personality
-    # XXX to be inserted the short version
 
     # Algo Aversion
     algo_aversion_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"Totalmente en desacuerdo"],
@@ -453,6 +448,105 @@ class Player(BasePlayer):
         ["B","Opción B: 8 puntos para usted; 16 puntos para el otro participante"]
         ], widget=widgets.RadioSelectHorizontal, label=""
     )
+
+    # Personality
+    perso_1 = models.IntegerField(label="Extravertida, entusiasta", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_2 = models.IntegerField(label="Que critica a los demás, conflictiva", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_3 = models.IntegerField(label="Fiable, autodisciplinada", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_4 = models.IntegerField(label="Ansiosa, que fácilmente se altera", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_5 = models.IntegerField(label="Abierta a nuevas experiencias, compleja", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_6 = models.IntegerField(label="Reservada, callada", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_7 = models.IntegerField(label="Considerada, afectuosa", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_8 = models.IntegerField(label="Desorganizada, descuidada", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_9 = models.IntegerField(label="Tranquila, emocionalmente estable", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+    perso_10 = models.IntegerField(label="Convencional, poco creativa", choices=[
+        [1, "1. Totalmente en descuerdo"],
+        [2, "2. Muy en  descuerdo"],
+        [3, "3.	Algo en descuerdo"],
+        [4, "4.	Ni de acuerdo ni en desacuerdo"],
+        [5, "5.	Algo de acuerdo"],
+        [6, "6.	Muy de acuerdo"],
+        [7, "7.	Totalmente de acuerdo"],
+    ])
+
+    ## Computed personalities
+    extraversion = models.FloatField()
+    agreeableness = models.FloatField()
+    openness = models.FloatField()
+    emotional_stability = models.FloatField()
+    conscientiousness = models.FloatField()
     pass
 
 # FUNCTIONS
@@ -907,14 +1001,6 @@ class Demographics(Page):
         return player.round_number == Constants.num_rounds
     pass
 
-
-#class WorkSatisfaction(Page): # XXX
-#    @staticmethod
-#    def is_displayed(player: Player):
-#        return player.round_number == Constants.num_rounds
-#    pass
-
-
 class PerceivedJustice(Page): # XXX
     form_model = 'player'
     form_fields = ['perceived_j_1','perceived_j_2','perceived_j_3','perceived_j_4','perceived_j_5','perceived_j_6','perceived_j_7']
@@ -927,12 +1013,9 @@ class PerceivedJustice(Page): # XXX
 class SAM(Page):
     form_model = 'player'
     form_fields = ['SAM_1', 'SAM_2', 'SAM_3']
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == Constants.num_rounds
     pass
 
-class DistributiveJustice(Page): # XXX
+class DistributiveJustice(Page):
     form_model = 'player'
     form_fields = ['distributive_j_1','distributive_j_2','distributive_j_3','distributive_j_4']
 
@@ -941,7 +1024,12 @@ class DistributiveJustice(Page): # XXX
         return player.round_number == Constants.num_rounds
     pass
 
-class Personality(Page): # XXX
+class Personality(Page):
+    form_model = 'player'
+    form_fields = [
+        'perso_1', 'perso_2', 'perso_3', 'perso_4', 'perso_5'
+        'perso_6', 'perso_7', 'perso_8', 'perso_9', 'perso_10'
+                   ]
     @staticmethod
     def is_displayed(player: Player):
         return player.round_number == Constants.num_rounds
@@ -965,6 +1053,13 @@ class AlgoAversion(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.round_number == Constants.num_rounds
+
+    def before_next_page(player: Player, timeout_happened):
+        player.extraversion = player.perso_1 + 8 - player.perso_6
+        player.agreeableness = 8 - player.perso_2 + player.perso_7
+        player.conscientiousness = player.perso_3 + 8 - player.perso_8
+        player.emotional_stability = 8 - player.perso_4 + player.perso_9
+        player.openness = player.perso_5 + 8 - player.perso_10
     pass
 
 class SocialPreferences(Page):
@@ -991,14 +1086,13 @@ page_sequence = [Instruction,                       # R =1
                  Negotiation_2,                     # R > 1 hence all
                  ComputeProductionCosts,            # R > 1 hence all
                  Feedback_Negotiation,              # R all - treatment human
-                 Survey_E,                          # R > 1
+                 SAM,
                  Intro_to_production,               # R all
                  Production,                        # R all
                  ResultsWaitPage,                   # R all
                  Feedback_production,               # R all
                  Instruction_2,                     # R =1
                  Quiz_2,                            # R =1 XXX
-                 SAM,
                  DistributiveJustice,
                  PerceivedJustice,
                  Personality,
