@@ -1,0 +1,167 @@
+{{ block title }}{{ endblock }}
+
+{{ block scripts }}
+<script>
+
+// for Q1
+var x = document.querySelectorAll(".Q1");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_1').value = val;
+    });
+});
+
+// for Q2
+var x = document.querySelectorAll(".Q2");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_2').value = val;
+    });
+});
+
+// for Q3
+var x = document.querySelectorAll(".Q3");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_3').value = val;
+    });
+});
+
+// for Q4
+var x = document.querySelectorAll(".Q4");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_4').value = val;
+    });
+});
+
+// for Q5
+var x = document.querySelectorAll(".Q5");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_5').value = val;
+    });
+});
+
+// for Q6
+var x = document.querySelectorAll(".Q6");
+x.forEach(function (radio) {
+    radio.addEventListener('click', function (){
+        let val = this.defaultValue;
+        document.getElementById('socialpreferences_6').value = val;
+    });
+});
+
+</script>
+
+{{ endblock }}
+
+{{ block content }}
+
+<div class="card bg-light">
+    <div class="card-body">
+Note: These questions will affect your final earnings.
+    </div>
+</div>
+
+<div class="card bg-light">
+    <div class="card-body">
+        <p>
+            A continuación, se presentan varias situaciones en las que deberá elegir entre dos tomas de decisiones.
+            <br><br>
+            En la siguiente pantalla se le pedirá que tome seis decisiones.
+            <br><br>
+            En cada problema de decisión se le emparejará con un participante diferente.
+            <br><br>
+            Una vez completada la encuesta, usted y los demás participantes recibirán una remuneración en función de sus
+            elecciones.
+            En concreto, cada problema de decisión tiene dos papeles posibles: uno activo y otro pasivo.
+            Se le pagará por un único problema de decisión seleccionado al azar entre los seis y, dentro de ese problema
+            de decisión, su papel final también se seleccionará al azar. No se utiliza el engaño.
+            <br><br>
+            Cada problema de decisión consiste en elegir entre dos repartos de puntos entre usted y el otro participante. La opción A será la misma en las seis decisiones: 10 puntos para usted y 10 puntos para el otro participante. Sin embargo, el reparto en la opción B cambiará cada vez.
+            <br><br>
+            Tenga en cuenta que el otro participante nunca será informado de su identidad personal y que usted no será
+            informado de la identidad personal del otro participante.
+
+        </p>
+    </div>
+</div>
+
+<table class="table table-responsive table-bordered">
+    <tr>
+        <th></th>
+        <th>Opción A.</th>
+        <th>Opción B.</th>
+    </tr>
+    <tr>
+        <th>Question 1. </th>
+        <td>
+            <input class="Q1" type="radio" name="Q1" value="A" id="Q1_A" ><label for='Q1_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q1" type="radio" name="Q1" value="B" id="Q1_B"><label for="Q1_B">You: 10; Other: 6</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Question 2. </th>
+        <td>
+            <input class="Q2" type="radio" name="Q2" value="A" id="Q2_A" ><label for='Q2_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q2" type="radio" name="Q2" value="B" id="Q2_B"><label for="Q2_B">You: 16; Other: 4</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Question 3. </th>
+        <td>
+            <input class="Q3" type="radio" name="Q3" value="A" id="Q3_A" ><label for='Q3_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q3" type="radio" name="Q3" value="B" id="Q3_B"><label for="Q3_B">You: 10; Other: 18</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Question 4. </th>
+        <td>
+            <input class="Q4" type="radio" name="Q4" value="A" id="Q4_A" ><label for='Q4_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q4" type="radio" name="Q4" value="B" id="Q4_B"><label for="Q4_B">You: 11; Other: 19</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Question 5. </th>
+        <td>
+            <input class="Q5" type="radio" name="Q5" value="A" id="Q5_A" ><label for='Q5_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q5" type="radio" name="Q5" value="B" id="Q5_B"><label for="Q5_B">You: 12; Other: 4</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Question 6. </th>
+        <td>
+            <input class="Q6" type="radio" name="Q6" value="A" id="Q6_A" ><label for='Q6_A'>You: 10; Other: 10</label>
+        </td>
+        <td>
+            <input class="Q6" type="radio" name="Q6" value="B" id="Q6_B"><label for="Q6_B">You: 8; Other: 16</label>
+        </td>
+    </tr>
+</table>
+
+{{ next_button }}
+
+<input type="hidden" id="socialpreferences_1" name="socialpreferences_1">
+<input type="hidden" id="socialpreferences_2" name="socialpreferences_2">
+<input type="hidden" id="socialpreferences_3" name="socialpreferences_3">
+<input type="hidden" id="socialpreferences_4" name="socialpreferences_4">
+<input type="hidden" id="socialpreferences_5" name="socialpreferences_5">
+<input type="hidden" id="socialpreferences_6" name="socialpreferences_6">
+
+{{ endblock }}

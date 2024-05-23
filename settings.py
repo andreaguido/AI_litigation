@@ -8,6 +8,19 @@ SESSION_CONFIGS = [
          treatment = 'A',
          doc = """A = algo treatment; M = manager treatment;"""
      ),
+     dict(
+         name='Social_Preferences',
+         app_sequence=['dg_social_preferences'],
+         num_demo_participants=2,
+     ),
+    dict(
+        name='All',
+        app_sequence=['AI', 'dg_social_preferences', 'demographics', 'results'],
+        num_demo_participants=2,
+        treatment='A',
+        doc="""A = algo treatment; M = manager treatment;"""
+
+    )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -19,7 +32,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = []
+PARTICIPANT_FIELDS = ['ai_payoff_r1','ai_payoff_r2','ai_payoff_r3','ai_payoff_r4','dg_payoff']
 SESSION_FIELDS = []
 
 # ISO-639 code

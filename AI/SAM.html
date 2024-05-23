@@ -1,15 +1,7 @@
-{{ block title }}Final Questionnaire{{ endblock }}
+{{ block title }}{{ endblock }}
 
 {{ block scripts }}
 <script>
-function toggleText(){
-  var x = document.getElementById("Myid");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
 
 
 // take values from the form
@@ -56,11 +48,22 @@ x.forEach(function (radio) {
     <div class="card-body">
 
     <p>
+        {{ if subsession.round_number == 1 }}
+
         A continuación, le presentamos tres imágenes en referencia a su estado de ánimo.
         Cada imagen contiene unas combinaciones de adjetivos que utilizará para calificar tus sentimientos sobre la imagen
         respecto a su estado de ánimo actual. Algunas combinaciones de adjetivos pueden parecer inusuales, pero probablemente
         se sentirá más de una manera sobre una combinación que sobre otra. Por lo tanto, en cada línea, elija de 1 a 9 qué
-        imagen representa más su estado de ánimo según los adjetivos indicados.
+        imagen representa más su estado de ánimo según los adjetivos indicados. <br><br>
+
+        Seleccione el número que mejor se adapte a tu estado de ánimo para cada imagen:
+
+        {{ else }}
+
+        Teniendo en cuenta el resultado de la negociación, seleccione el número que mejor se adapte a tu estado de ánimo para cada imagen:
+
+        {{ endif }}
+
     </p>
     </div>
 </div>
@@ -68,8 +71,7 @@ x.forEach(function (radio) {
 
 <div class="card bg-light">
     <div class="card-body">
-    <p>
-        Seleccione el número que mejor se adapte a tu estado de ánimo: <br><br>
+    <p style="font-size: small">
         Nota: <br>
         1 representa sentirse "infeliz, molesto, insatisfecho, melancólico, desesperado o aburrido" <br>
         9 representa sentirse "feliz, complacido, satisfecho, contento, esperanzado, relajado"
@@ -77,31 +79,31 @@ x.forEach(function (radio) {
         <table>
             <tr>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q1_1.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q1_2.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q1_3.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q1_4.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q1_5.png'}}" alt="">
                 </td>
             </tr>
             <tr>
@@ -141,8 +143,7 @@ x.forEach(function (radio) {
 
 <div class="card bg-light">
     <div class="card-body">
-    <p>
-        Seleccione el número que mejor se adapte a tu estado de ánimo: <br><br>
+    <p style="font-size: small">
         Nota: <br>
         1 representa sentirse "relajado, tranquilo, perezoso, apagado, somnoliento, sin despertar" <br>
         9 representa sentirse "estimulado, excitado, frenético, nervioso, muy despierto, excitado"
@@ -153,31 +154,31 @@ x.forEach(function (radio) {
         <table>
             <tr>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q2_1.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q2_2.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q2_3.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q2_4.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q2_5.png'}}" alt="">
                 </td>
             </tr>
             <tr>
@@ -217,8 +218,7 @@ x.forEach(function (radio) {
 
 <div class="card bg-light">
     <div class="card-body">
-    <p>
-        Seleccione el número que mejor se adapte a su estado de ánimo: <br><br>
+    <p style="font-size: small">
         Nota: <br>
         1 representa sentirse "controlado, influenciado, cuidado, asombrado, sumiso" <br>
         9 representa sentirse "controlador, influyente, en control, importante, dominante" <br>
@@ -227,31 +227,31 @@ x.forEach(function (radio) {
         <table>
             <tr>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q3_1.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q3_2.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q3_3.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q3_4.png'}}" alt="">
                 </td>
                 <td>
 
                 </td>
                 <td>
-                    <img src="{{static '2010526.png'}}" alt="">
+                    <img src="{{static 'Q3_5.png'}}" alt="">
                 </td>
             </tr>
             <tr>
