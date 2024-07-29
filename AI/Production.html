@@ -13,6 +13,81 @@ function toggleText(){
   }
 }
 </script>
+<script>
+
+var dropdown1 = document.getElementById('id_prod_round_1');
+var dropdown2 = document.getElementById('id_prod_round_2');
+var dropdownprivate1 = document.getElementById('private1');
+var dropdownprivate2 = document.getElementById('private2');
+
+function updatedropprivate() {
+    // for private 1
+    var selectedIndex1 = dropdown1.selectedIndex;
+
+    // var y = document.getElementById('private1');
+    if (selectedIndex1 > 0) {
+        var selectedvalue = dropdown1.options[dropdown1.selectedIndex].value;
+        dropdownprivate1.value = 20-selectedvalue;
+    } else {
+        dropdownprivate1.value = -1;
+    }
+
+
+    // for private 2
+    var selectedIndex2 = dropdown2.selectedIndex;
+
+    // var y2 = document.getElementById('private2');
+    if (selectedIndex2 > 0) {
+        var selectedvalue2 = dropdown2.options[dropdown2.selectedIndex].value;
+        dropdownprivate2.value = 20-selectedvalue2;
+    } else {
+        dropdownprivate2.value = -1;
+    }
+}
+
+function updatedropcommon1() {
+    // for common 1
+    var selectedIndex1 = dropdownprivate1.selectedIndex;
+    if (selectedIndex1 > 0) {
+        var selectedvalue = dropdownprivate1.options[dropdownprivate1.selectedIndex].value;
+        dropdown1.value = 20-selectedvalue;
+    } else {
+        dropdown1.value = "";
+    }
+}
+
+function updatedropcommon2() {
+    // for common 2
+    var selectedIndex2 = dropdownprivate2.selectedIndex;
+    if (selectedIndex2 > 0) {
+        var selectedvalue = dropdownprivate2.options[dropdownprivate2.selectedIndex].value;
+        dropdown2.value = 20-selectedvalue;
+    } else {
+        dropdown2.value = "";
+    }
+}
+
+function populateDropdown(dropdown) {
+    for (var i = 0; i <= 20; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        dropdown.appendChild(option);
+    }
+}
+
+dropdown1.addEventListener('change', updatedropprivate);
+dropdown2.addEventListener('change', updatedropprivate);
+
+dropdownprivate1.addEventListener('change', updatedropcommon1);
+dropdownprivate2.addEventListener('change', updatedropcommon2);
+
+updatedropprivate();
+
+populateDropdown(dropdownprivate1);
+populateDropdown(dropdownprivate2);
+</script>
+
 {{ endblock }}
 
 {{ block content }}
@@ -67,6 +142,25 @@ function toggleText(){
         <td>{{ formfield 'prod_round_1' }}</td>
         <td>{{ formfield 'prod_round_2' }}</td>
     </tr>
+    <tr>
+        <td><p>Points to the Private Account</p></td>
+        <td id="">
+            <select id="private1" class="form-select">
+                <option value="-1">--------</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </td>
+        <td id="">
+            <select id="private2" class="form-select">
+                <option value="-1">--------</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </td>
+    </tr>
     </thead>
 </table>
     {{ next_button }}
@@ -88,5 +182,6 @@ function toggleText(){
     {{ include_sibling 'tabs_reduced.html' }}
 
 </div>
+
 
 {{ endblock }}
