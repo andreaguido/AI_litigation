@@ -168,30 +168,29 @@ class Player(BasePlayer):
     # quiz variables
     ## Quiz part I
     quiz1 = models.IntegerField(
-        label="<b>Question 1:</b> How many parts does the experiment consist of?",
+        label="<b>Pregunta 1:</b> ¿De cuántas partes consta el experimento?",
         choices=[[1, '1'],
                  [2, '2'],
                  [0, '3'],
                  [3, '4'],
                  ], widget=widgets.RadioSelect)
     quiz2 = models.IntegerField(
-        label="<b>Question 2:</b> With how many participants are you matched with in Part I of the study?”",
-        choices=[[1, '1 worker'],
-                 [0, '1 worker and 1 manager'],
-                 [2, '1 manager'],
-                 [3, 'No one'],
+        label="<b>Pregunta 2:</b> Su grupo estará compuesto de ...",
+        choices=[[1, 'Usted, y otro trabajador'],
+                 [0, 'Usted, y un gerente'],
+                 [2, 'Usted, otro trabajador y un gerente'],
                  ], widget=widgets.RadioSelect)
     quiz3 = models.IntegerField(
-        label="<b>Question 3:</b> If you and your matched worker decide to allocate all the 20 points to the group account, and you get 40% of the group account, what are your final earnings?",
-        choices=[[1, '17 points'],
-                 [2, '0 points'],
-                 [0, '32 points'],
-                 [3, '40 points'],
+        label="<b>Pregunta 3:</b> Si en una tarea usted y el otro trabajador deciden asignar todos sus 20 puntos a la cuenta grupal (y 0 a sus cuentas individuales) y tienen el 40% de la cuenta grupal, ¿cuáles son las ganancias totales para usted en esa tarea?",
+        choices=[[1, '16 puntos'],
+                 [2, '0 puntos'],
+                 [0, '32 puntos'],
+                 [3, '40 puntos'],
                  ], widget=widgets.RadioSelect)
     quiz4 = models.IntegerField(
-        label="<b>Question 4:</b> You will know the percentage of your matched worker and manager:",
-        choices=[[1, 'True'],
-                 [0, 'False'],
+        label="<b>Pregunta 4:</b> Usted sabrá el porcentaje que tiene el otro trabajador y el porcentaje que tiene el gerente de la cuenta grupal:",
+        choices=[[1, 'Verdadero'],
+                 [0, 'Falso'],
                  ], widget=widgets.RadioSelect)
     ## Quiz part II
     quiz5 = models.IntegerField(

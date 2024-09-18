@@ -1,13 +1,13 @@
 {{ block title }}
-        Production Stage {{ if player.round_number == 1 }} (Part I) {{ else }} (Period #{{ round }}) {{ endif }}
+        {{ if player.round_number == 1 }} Parte I. Juego de producción {{ else }} Juego de producción (Ronda #{{ round }}) {{ endif }}
 {{ endblock }}
 
 {{ block content }}
-<b>You will now start the Production Stage.</b> <br><br>
 
-{{ if player.round_number == 1 }}
-{{endif}}
 
+<b>En la siguiente pantalla usted podrá tomar sus decisiones del juego de producción.</b>
+<br><br>
+    Por favor, haga click en “Siguiente” para comenzar.
 <br><br>
 
     {{ next_button }}

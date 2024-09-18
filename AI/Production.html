@@ -1,5 +1,5 @@
 {{ block title }}
-    Production Stage - {{ if player.round_number == 1 }} (Part I) {{ else }} (Period #{{ round }}) {{ endif }}
+        {{ if player.round_number == 1 }} Parte I. Juego de producción {{ else }} Juego de producción (Ronda #{{ round }}) {{ endif }}
 {{ endblock }}
 
 {{ block scripts }}
@@ -95,30 +95,18 @@ populateDropdown(dropdownprivate2);
 <div class="card bg-light">
     <div class="card-body">
     <p>
-
-    In this stage, you and the other worker will receive 20 points per task. <br>
-
-    It's up to you to decide how many of each 20 points you wish to allocate to the Group Account per each task. <br>
-
-    The points not allocated to the Group Account will be allocated to the Private Account. <br>
-
-    You can find a summary of the instructions at the bottom of this page.
-
+        En esta parte, usted y el otro trabajador tienen que decidir cómo repartir 20 puntos entre la cuenta grupal y su cuenta privada para cada tarea.
     </p>
-    </div>
-</div>
-
-<br><br>
-
-<div class="card bg-light">
-    <div class="card-body">
     <p>
-
-    Remember that your final earnings are determined by the following formula: <br><br>
-
-        <b>Final points = Points in your Private account + Your Percentage * 2 * (Total sum of points in the group
-            account)</b>
-
+        Puede encontrar un resumen de las instrucciones al final de esta página.
+    </p>
+    <p>
+        Recuerde que sus puntos finales para cada tarea están determinadas por la siguiente fórmula:
+    </p>
+        <b>Puntos finales = Puntos en su cuenta privada + su Porcentaje de Negociación *[2 * Total de puntos en la cuenta grupal]</b>
+    </p>
+    <p>
+        Una vez que usted y el otro trabajador hayan terminado sus decisiones, usted podrá ver sus ganancias en cada tarea.
     </p>
     </div>
 </div>
@@ -129,27 +117,45 @@ populateDropdown(dropdownprivate2);
     <thead>
     <tr>
         <th></th>
-        <th>Task 1</th>
-        <th>Task 2</th>
+        <th>Tarea 1</th>
+        <th>Tarea 2</th>
     </tr>
     <tr>
-        <td>Your Percentage:</td>
+        <td>Su porcentaje de la cuenta grupal:</td>
         <td>{{ player.production_cost_1 }} %</td>
         <td>{{ player.production_cost_2 }} %</td>
     </tr>
     <tr>
-        <td><p>Points to the Group Account</p></td>
+        <td><p>Puntos cuenta grupal</p></td>
         <td>{{ formfield 'prod_round_1' }}</td>
         <td>{{ formfield 'prod_round_2' }}</td>
     </tr>
     <tr>
-        <td><p>Points to the Private Account</p></td>
+        <td><p>Puntos cuenta privada</p></td>
         <td id="">
             <select id="private1" class="form-select">
                 <option value="-1">--------</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
+                <option value="2">3</option>
+                <option value="2">4</option>
+                <option value="2">5</option>
+                <option value="2">6</option>
+                <option value="2">7</option>
+                <option value="2">8</option>
+                <option value="2">9</option>
+                <option value="2">10</option>
+                <option value="2">11</option>
+                <option value="2">12</option>
+                <option value="2">13</option>
+                <option value="2">14</option>
+                <option value="2">15</option>
+                <option value="2">16</option>
+                <option value="2">17</option>
+                <option value="2">18</option>
+                <option value="2">19</option>
+                <option value="2">20</option>
             </select>
         </td>
         <td id="">
@@ -158,6 +164,24 @@ populateDropdown(dropdownprivate2);
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
+                <option value="2">3</option>
+                <option value="2">4</option>
+                <option value="2">5</option>
+                <option value="2">6</option>
+                <option value="2">7</option>
+                <option value="2">8</option>
+                <option value="2">9</option>
+                <option value="2">10</option>
+                <option value="2">11</option>
+                <option value="2">12</option>
+                <option value="2">13</option>
+                <option value="2">14</option>
+                <option value="2">15</option>
+                <option value="2">16</option>
+                <option value="2">17</option>
+                <option value="2">18</option>
+                <option value="2">19</option>
+                <option value="2">20</option>
             </select>
         </td>
     </tr>
