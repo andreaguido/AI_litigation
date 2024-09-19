@@ -177,8 +177,8 @@ class Player(BasePlayer):
     quiz2 = models.IntegerField(
         label="<b>Pregunta 2:</b> Su grupo estará compuesto de ...",
         choices=[[1, 'Usted, y otro trabajador'],
-                 [0, 'Usted, y un gerente'],
-                 [2, 'Usted, otro trabajador y un gerente'],
+                 [2, 'Usted, y un gerente'],
+                 [0, 'Usted, otro trabajador y un gerente'],
                  ], widget=widgets.RadioSelect)
     quiz3 = models.IntegerField(
         label="<b>Pregunta 3:</b> Si en una tarea usted y el otro trabajador deciden asignar todos sus 20 puntos a la cuenta grupal (y 0 a sus cuentas individuales) y tienen el 40% de la cuenta grupal, ¿cuáles son las ganancias totales para usted en esa tarea?",
@@ -194,39 +194,39 @@ class Player(BasePlayer):
                  ], widget=widgets.RadioSelect)
     ## Quiz part II
     quiz5 = models.IntegerField(
-        label="<b>Question 1:</b> In the Negotiation-Production game, you and the other worker in your group will go through:",
-        choices=[[0, 'A negotiation stage first and then a production stage'],
-                 [2, 'A production stage and then a negotiation stage'],
-                 [1, 'Two production stages and then a negotiation stage'],
-                 [3, 'A negotiation stage only'],
+        label="<b>Pregunta 1:</b> El juego de Negociación-Producción consiste en las siguientes etapas:",
+        choices=[[0, 'Una etapa de negociación primero y luego una etapa de producción.'],
+                 [2, 'Una etapa de producción y luego una etapa de negociación.'],
+                 [1, 'Solo una etapa de producción.'],
+                 [3, 'Sólo una etapa de negociación.'],
                  ], widget=widgets.RadioSelect)
     quiz6 = models.IntegerField(
-        label="<b>Question 2:</b> How many repetitions (periods) will you play in the Negotiation-Production?",
+        label="<b>Pregunta 2:</b> ¿Cuántas repeticiones (rondas) jugarás del juego de Negociación-Producción?",
         choices=[[1, '1'],
                  [2, '2'],
                  [0, '3'],
                  [3, '4'],
                  ], widget=widgets.RadioSelect)
     quiz7 = models.IntegerField(
-        label="<b>Question 3:</b> In the Negotiation Stage, how are percentages determined for the Production Stage?",
-        choices=[[1, 'The manager decides the percentages always.'],
-                 [2, 'Workers select their own percentages individually without any agreement.'],
-                 [3, 'Percentages are predetermined and cannot be changed.'],
-                 [0, 'If workers agree on a possible alternative, those percentages will be implemented.'],
+        label="<b>Pregunta 3:</b> En la Etapa de Negociación, ¿cómo se determinan los porcentajes para la etapa de producción?",
+        choices=[[1, 'El gerente decide los porcentajes siempre.'],
+                 [2, 'Los trabajadores seleccionan sus propios porcentajes individualmente.'],
+                 [3, 'Los porcentajes están predeterminados y no se pueden cambiar.'],
+                 [0, 'Los trabajadores podrán negociar entre diferentes opciones.'],
                  ], widget=widgets.RadioSelect)
     quiz8_manager = models.IntegerField(
-        label="<b>Question 4:</b> What happens if you and the other worker in your group do not reach an agreement during the Negotiation Stage?",
-        choices=[[1, 'You and the other worker in your group will earn 0 points and the manager will earn 100 points.'],
-                 [0, 'The manager will decide the percentages.'],
-                 [2, 'Both workers will be expelled from the experiment.'],
-                 [3, 'Participants will have to restart the negotiation.'],
+        label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
+        choices=[[0, 'Los porcentajes estarán predeterminados por el gerente.'],
+                 [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
+                 [2, 'Ambos trabajadores serán expulsados del experimento.'],
+                 [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
     quiz8_algo = models.IntegerField(
-        label="<b>Question 4:</b> What happens if you and the other worker in your group do not reach an agreement during the Negotiation Stage?",
-        choices=[[0, 'The percentages will be predetermined by an algorithm that mimics managers decisions.'],
-                 [1, 'You and the other worker in your group will earn 0 points and the manager will earn 100 points.'],
-                 [2, 'Both workers will be expelled from the experiment.'],
-                 [3, 'You and the other worker in your group will have to restart the negotiation.'],
+        label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
+        choices=[[0, 'Los porcentajes estarán predeterminados por un algoritmo diseñado para imitar las decisiones de los gerentes reales'],
+                 [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
+                 [2, 'Ambos trabajadores serán expulsados del experimento.'],
+                 [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
 
     quiz_attempts_1 = models.IntegerField(initial=0)
@@ -256,19 +256,19 @@ class Player(BasePlayer):
     SAM_3 = models.IntegerField()
 
     # Distributive Justice
-    distributive_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus recompensas/ resultados* reflejan el esfuerzo que has puesto en su trabajo?")
-    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus recompensas son apropiadas para el trabajo que ha terminado?")
-    distributive_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus recompensas reflejan que ha contribuido al grupo?")
-    distributive_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus recompensas son justas teniendo en cuenta su desempeño?")
+    distributive_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los puntos totales que usted ha ganado reflejan el esfuerzo que ha puesto en su trabajo?")
+    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus puntos totales son apropiado para el trabajo que ha completado?")
+    distributive_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus puntos totales reflejan lo que ha contribuido al grupo?")
+    distributive_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los puntos totales están justificados, dado su rendimiento?")
 
     # Perceived Justice
-    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar recompensas? ")
-    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha tenido influencia sobre las recompensas obtenidas a partir de dichos procedimientos?")
-    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados consistentemente (de la misma manera a todos los empleados)?")
-    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados de manera neutral (sin prejuicios)?")
-    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
-    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
-    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En cierta medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
+    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar recompensas? ")
+    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha tenido influencia sobre las recompensas obtenidas a partir de dichos procedimientos?")
+    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados consistentemente (de la misma manera a todos los empleados)?")
+    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados de manera neutral (sin prejuicios)?")
+    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
+    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
+    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
 
     # Algo Aversion
     algo_aversion_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"Totalmente en desacuerdo"],
@@ -585,14 +585,14 @@ pass
 # PAGES
 class Instruction(Page):
     timeout_seconds = 60*15
-    timer_text = 'Time left to finish reading instructions:'
+    timer_text = 'Tiempo restante para leer las instrucciones:'
     def is_displayed(player: Player):
         return player.round_number == 1
     pass
 
 class Instruction_2(Page):
     timeout_seconds = 60*15
-    timer_text = 'Time left to finish reading instructions:'
+    timer_text = 'Tiempo restante para leer las instrucciones'
     def is_displayed(player: Player):
         return player.round_number == 1
     pass
@@ -609,7 +609,7 @@ class Quiz(Page):
 
         for field_name in solutions:
             if values[field_name] != solutions[field_name]:
-                error_messages[field_name] = 'Wrong answer'
+                error_messages[field_name] = 'Respuesta incorrecta'
 
         if values != solutions:
             player.quiz_attempts_1 += 1
@@ -630,7 +630,6 @@ class Quiz_2(Page):
 
     @staticmethod
     def get_form_fields(player: Player):
-        print("SUCAAAAAAAAAAAAAAAAA", player.subsession.treatment)
         if player.subsession.treatment == "A":
             temp = ['quiz5', 'quiz6', 'quiz7', 'quiz8_algo']
         else:
@@ -738,7 +737,7 @@ class Intro_to_production(Page):
 class Negotiation_2(Page):
     form_model = 'player'
     form_fields = []
-    #timeout_seconds = 120 # XXX
+    timeout_seconds = 120 # XXX
 
     @staticmethod
     def is_displayed(player: Player):
@@ -766,7 +765,8 @@ class Negotiation_2(Page):
             loop_task_2=(loop_task_2_sorted_ascending),
             #loop_task_3=(loop_task_3),
             #loop_task_4=(loop_task_4),
-            round=player.round_number - 1
+            round=player.round_number - 1,
+            n="Trabajador "+str(player.id_in_group)
         )
     @staticmethod
     def js_vars(player: Player):
@@ -1033,7 +1033,7 @@ class AlgoAversion(Page):
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
                  Intro_to_New_Round,                # R > 1 hence all
-                 Intro_to_negotiation,              # R > 1 hence all
+                 #Intro_to_negotiation,              # R > 1 hence all
                  WaitNegotiation,                   # R > 1 hence all
                  Negotiation_2,                     # R > 1 hence all
                  ComputeProductionCosts,            # R > 1 hence all

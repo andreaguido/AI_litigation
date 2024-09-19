@@ -1,12 +1,11 @@
 {{ block title }}
-Negotiation Stage
+Etapa de negociación
 {{ endblock }}
 
 {{ block content }}
 
 <p>
-    Choose your percentages for the four tasks.
-    At the bottom of the page, you can find a chat box to communicate with the worker in your group.
+    Elija una opción sobre su porcentaje de las cuentas grupales para cada una de las tareas. En la parte inferior de la pantalla, puede encontrar un cuadro de chat para comunicarse con el otro trabajador.
 </p>
 
 <div class="ciao">
@@ -14,13 +13,13 @@ Negotiation Stage
     <table class="table tabella" style="border: 1px solid black;">
         <tr>
             <!---<td></td>--->
-            <th style="text-align: center" id = "Task_1" colspan="3">Task 1</th>
+            <th style="text-align: center" id = "Task_1" colspan="3">Tarea 1</th>
         </tr>
         <tr>
             <!---<th>Option</th>--->
-            <th>Percentage</th>
-            <th>My choice</th>
-            <th>Other</th>
+            <th>Mi porcentage</th>
+            <th>Mi elección</th>
+            <th>Otro</th>
         </tr>
 
         {{ for choice in loop_task_1 }}
@@ -42,13 +41,13 @@ Negotiation Stage
         <!--------- SECOND TASK ---------->
     <table class="table tabella" style="border: 1px solid black;">
         <tr>
-            <th style="text-align: center" id = "Task_2" colspan="3">Task 2</th>
+            <th style="text-align: center" id = "Task_2" colspan="3">Tarea 2</th>
         </tr>
         <tr>
             <!---<th>Option</th>-->
-            <th>Percentage</th>
-            <th>My choice</th>
-            <th>Other</th>
+            <th>Mi porcentage</th>
+            <th>Mi elección</th>
+            <th>Otro</th>
         </tr>
 
         {{ for choice_2 in loop_task_2 }}
@@ -69,8 +68,9 @@ Negotiation Stage
     </table>
 </div>
 
-<h4>Chat with teammate</h4>
-{{ chat nickname=player.role }}
+<h4>Chat con el otro trabajador de su grupo</h4>
+
+    {{ chat nickname=n }}
 
 <div style="visibility: hidden">
 
@@ -230,7 +230,7 @@ input[type="radio"]:checked + .slider:before {
     border-radius: 50%;
 }
 
-.otree-chat__nickname {width:100px}
+.otree-chat__nickname {width:170px}
 .clear-on-redraw {
 
 }
