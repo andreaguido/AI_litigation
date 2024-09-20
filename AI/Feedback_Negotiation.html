@@ -1,5 +1,5 @@
 {{ block title }}
-Results from Negotiation Stage
+    Resultados de la etapa de negociación
 {{ endblock }}
 
 {{ block content }}
@@ -7,49 +7,62 @@ Results from Negotiation Stage
 
 {{ if group.final_agree == 0 and player.subsession.treatment == "A" }}
 
-You and your paired worker <b>did not reach an agreement</b>.<br><br>
-<!--- XXX change depending on treatment variable -->
-<div class="card card-header" align="center">
+    <div class="card card-body card-header">
+        Usted y el otro trabajador no han llegado a un acuerdo en la etapa de negociación.
+    </div>
+    <br><br>
+    <div class="card card-header" align="center">
 
-    An algorithm designed to mimic the decisions made by actual managers has decided
-    the percentage of the total production that you and the other worker will obtain from each task.
-    Remember that the algorithm does not have access to the proposal you and the other worker made in the
-    negotiation stage or the messages that you exchanged in the chat.
+        Un algoritmo diseñado para imitar las decisiones tomadas por gerentes reales con experiencia práctica en entornos empresariales ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
+        <br><br>
+        Recuerde que el algoritmo no tiene acceso a las propuestas que usted y el otro trabajador hicieron en la etapa de negociación ni a los mensajes que intercambiaron en el chat.
+    </div>
 
-</div>
 {{ elif group.final_agree == 0 and player.subsession.treatment == "M" }}
 
-MANAGER
-
+    <div class="card card-body card-header">
+        Usted y el otro trabajador no han llegado a un acuerdo en la etapa de negociación.
+    </div>
+    <br><br>
+    <div class="card card-header" align="center">
+        El gerente con experiencia en entornos empresariales ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
+        Recuerde que el gerente no tiene acceso a las propuestas que usted y el otro trabajador hicieron en la etapa de negociación ni a los mensajes que intercambiaron en el chat.
+    </div>
 
 {{ else }}
+
+<br><br>
+
 <div class="card card-header" align="center">
-    You have reached an agreement in the negotiation stage.
+    Usted y el otro trabajador han llegado a un acuerdo en la etapa de negociación.
 </div>
 
 {{ endif }}
 
-These percentages shown below will be used in the production stage that follows. <br><br>
-
-Press the button below to proceed to the production stage.
-
-
-
+<br><br>
+<div class="card card-header" align="center">
+    Los porcentajes que se muestran a continuación representan su porcentaje de la cuenta grupal de la siguiente etapa de producción. <br><br>
+</div>
+<br><br>
 <table class="table table-primary">
     <thead>
     <tr>
         <th></th>
-        <th>Task 1</th>
-        <th>Task 2</th>
+        <th>Tarea 1</th>
+        <th>Tarea 2</th>
     </tr>
     <tr>
-        <td>Your final percentage :</td>
+        <td>Su porcentaje de la cuenta grupal:</td>
         <td>{{ player.production_cost_1 }} %</td>
         <td>{{ player.production_cost_2 }} %</td>
     </tr>
 
     </thead>
 </table>
+
+<p>
+    Haga click en “Siguiente” para pasar a la etapa de producción.
+</p>
 
 {{ next_button }}
 
