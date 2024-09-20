@@ -1033,10 +1033,10 @@ class AlgoAversion(Page):
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
                  Intro_to_New_Round,                # R > 1 hence all
-                 #Intro_to_negotiation,              # R > 1 hence all
                  WaitNegotiation,                   # R > 1 hence all
                  Negotiation_2,                     # R > 1 hence all
                  ComputeProductionCosts,            # R > 1 hence all
+                 Thinking,
                  Feedback_Negotiation,              # R all - treatment human
                  SAM,
                  Intro_to_production,               # R all
