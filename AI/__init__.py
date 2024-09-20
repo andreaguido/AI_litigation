@@ -1030,6 +1030,11 @@ class AlgoAversion(Page):
 
     pass
 
+class Thinking(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number > 1
+
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
                  Intro_to_New_Round,                # R > 1 hence all

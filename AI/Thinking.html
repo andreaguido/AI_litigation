@@ -4,10 +4,11 @@
 
 {{ block content }}
 
+
     <div id="myProgress">
       <div id="myBar"></div>
     </div>
-    {{ next_button }}
+
 {{ endblock }}
 
 {{ block script }}
@@ -18,18 +19,21 @@ function move() {
     i = 1;
     var elem = document.getElementById("myBar");
     var width = 1;
-    var id = setInterval(frame, 10);
+    var id = setInterval(frame, 50);
     function frame() {
       if (width >= 100) {
         clearInterval(id);
         i = 0;
+        document.forms[0].submit();
       } else {
         width++;
         elem.style.width = width + "%";
       }
     }
   }
-} 
+};
+
+document.addEventListener("DOMContentLoaded", move());
 </script>
 <style>
     #myProgress {
