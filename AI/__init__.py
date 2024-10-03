@@ -20,24 +20,24 @@ class Constants(BaseConstants):
     task_1_costs_P1 = [
         dict(cost=round(0.99/2*100,1), labels = "A", task=1), #
         dict(cost=round(0.93/2*100,1), labels = "B", task=1),
-        dict(cost=round(0.87/2*100,0), labels = "C", task=1),
-        dict(cost=round(0.81/2*100,0), labels = "D", task=1),
-        dict(cost=round(0.75/2*100,0), labels = "E", task=1), #
-        dict(cost=round(0.69/2*100,0), labels = "F", task=1),
-        dict(cost=round(0.63/2*100,0), labels = "G", task=1),
-        dict(cost=round(0.57/2*100,0), labels = "H", task=1),
-        dict(cost=round(0.51/2*100,0), labels = "I", task=1)
+        dict(cost=round(0.87/2*100,1), labels = "C", task=1),
+        dict(cost=round(0.81/2*100,1), labels = "D", task=1),
+        dict(cost=round(0.75/2*100,1), labels = "E", task=1), #
+        dict(cost=round(0.69/2*100,1), labels = "F", task=1),
+        dict(cost=round(0.63/2*100,1), labels = "G", task=1),
+        dict(cost=round(0.57/2*100,1), labels = "H", task=1),
+        dict(cost=round(0.51/2*100,1), labels = "I", task=1)
     ]
     task_2_costs_P1 = [
         dict(cost=round(0.51/2*100, 1), labels = "A", task=2), #
         dict(cost=round(0.53/2*100, 1), labels = "B", task=2),
-        dict(cost=round(0.55/2*100, 0), labels = "C", task=2),
-        dict(cost=round(0.57/2*100, 0), labels = "D", task=2),
-        dict(cost=round(0.59/2*100, 0), labels = "E", task=2), #
-        dict(cost=round(0.61/2*100, 0), labels = "F", task=2),
-        dict(cost=round(0.63/2*100, 0), labels = "G", task=2),
-        dict(cost=round(0.65/2*100, 0), labels = "H", task=2),
-        dict(cost=round(0.67/2*100, 0), labels = "I", task=2)
+        dict(cost=round(0.55/2*100, 1), labels = "C", task=2),
+        dict(cost=round(0.57/2*100, 1), labels = "D", task=2),
+        dict(cost=round(0.59/2*100, 1), labels = "E", task=2), #
+        dict(cost=round(0.61/2*100, 1), labels = "F", task=2),
+        dict(cost=round(0.63/2*100, 1), labels = "G", task=2),
+        dict(cost=round(0.65/2*100, 1), labels = "H", task=2),
+        dict(cost=round(0.67/2*100, 1), labels = "I", task=2)
     ]
 #    task_3_costs_P1 = [
 #        dict(cost=round(0.99/2*100, 0), labels = "A", task=3),
@@ -66,24 +66,24 @@ class Constants(BaseConstants):
     task_1_costs_P2 = [
         dict(cost=round(0.51/2*100, 1), labels = "A", task=1), #
         dict(cost=round(0.53/2*100, 1), labels = "B", task=1),
-        dict(cost=round(0.55/2*100, 0), labels = "C", task=1),
-        dict(cost=round(0.57/2*100, 0), labels = "D", task=1),
-        dict(cost=round(0.59/2*100, 0), labels = "E", task=1), #
-        dict(cost=round(0.61/2*100, 0), labels = "F", task=1),
-        dict(cost=round(0.63/2*100, 0), labels = "G", task=1),
-        dict(cost=round(0.65/2*100, 0), labels = "H", task=1),
-        dict(cost=round(0.67/2*100, 0), labels = "I", task=1)
+        dict(cost=round(0.55/2*100, 1), labels = "C", task=1),
+        dict(cost=round(0.57/2*100, 1), labels = "D", task=1),
+        dict(cost=round(0.59/2*100, 1), labels = "E", task=1), #
+        dict(cost=round(0.61/2*100, 1), labels = "F", task=1),
+        dict(cost=round(0.63/2*100, 1), labels = "G", task=1),
+        dict(cost=round(0.65/2*100, 1), labels = "H", task=1),
+        dict(cost=round(0.67/2*100, 1), labels = "I", task=1)
     ]
     task_2_costs_P2 = [
         dict(cost=round(0.99/2*100, 1), labels = "A", task=2),
         dict(cost=round(0.93/2*100, 1), labels = "B", task=2),
-        dict(cost=round(0.87/2*100, 0), labels = "C", task=2),
-        dict(cost=round(0.81/2*100, 0), labels = "D", task=2),
-        dict(cost=round(0.75/2*100, 0), labels = "E", task=2), #
-        dict(cost=round(0.69/2*100, 0), labels = "F", task=2),
-        dict(cost=round(0.63/2*100, 0), labels = "G", task=2),
-        dict(cost=round(0.57/2*100, 0), labels = "H", task=2),
-        dict(cost=round(0.51/2*100, 0), labels = "I", task=2)
+        dict(cost=round(0.87/2*100, 1), labels = "C", task=2),
+        dict(cost=round(0.81/2*100, 1), labels = "D", task=2),
+        dict(cost=round(0.75/2*100, 1), labels = "E", task=2), #
+        dict(cost=round(0.69/2*100, 1), labels = "F", task=2),
+        dict(cost=round(0.63/2*100, 1), labels = "G", task=2),
+        dict(cost=round(0.57/2*100, 1), labels = "H", task=2),
+        dict(cost=round(0.51/2*100, 1), labels = "I", task=2)
     ]
 #    task_3_costs_P2 = [
 #        dict(cost=round(0.35/2*100, 0), labels = "A", task=3),
@@ -256,19 +256,19 @@ class Player(BasePlayer):
     SAM_3 = models.IntegerField()
 
     # Distributive Justice
-    distributive_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los puntos totales que usted ha ganado reflejan el esfuerzo que ha puesto en su trabajo?")
-    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus puntos totales son apropiado para el trabajo que ha completado?")
-    distributive_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Sus puntos totales reflejan lo que ha contribuido al grupo?")
-    distributive_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los puntos totales están justificados, dado su rendimiento?")
+    distributive_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los puntos totales que usted ha ganado reflejan el esfuerzo que ha puesto en su trabajo?")
+    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Sus puntos totales son apropiado para el trabajo que ha completado?")
+    distributive_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Sus puntos totales reflejan lo que ha contribuido al grupo?")
+    distributive_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los puntos totales están justificados, dado su rendimiento?")
 
     # Perceived Justice
-    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar recompensas? ")
-    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha tenido influencia sobre las recompensas obtenidas a partir de dichos procedimientos?")
-    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados consistentemente (de la misma manera a todos los empleados)?")
-    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas han sido aplicados de manera neutral (sin prejuicios)?")
-    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
-    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
-    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"1 - En pequeña medida"],[2,2],[3,3],[4,4],[5,"5 - En gran medida"]], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
+    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar recompensas? ")
+    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha tenido influencia sobre las recompensas obtenidas a partir de dichos procedimientos?")
+    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas han sido aplicados consistentemente (de la misma manera a todos los empleados)?")
+    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas han sido aplicados de manera neutral (sin prejuicios)?")
+    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
+    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
+    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
 
     # Algo Aversion
     algo_aversion_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"Totalmente en desacuerdo"],
@@ -663,7 +663,7 @@ class Quiz_2(Page):
 class Intro_to_New_Round(Page):
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number - 1)
+        return dict(round=player.round_number)
 
     def is_displayed(player: Player):
         return player.round_number > 1
@@ -672,7 +672,7 @@ class Intro_to_New_Round(Page):
 class Intro_to_negotiation(Page):
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number - 1)
+        return dict(round=player.round_number)
 
     def is_displayed(player: Player):
         return player.round_number > 1
@@ -687,7 +687,7 @@ class Production(Page):
 
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number - 1)
+        return dict(round=player.round_number)
     pass
 
 class Feedback_production(Page):
@@ -731,13 +731,13 @@ class ResultsWaitPage(WaitPage):
 class Intro_to_production(Page):
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number - 1)
+        return dict(round=player.round_number)
     pass
 
 class Negotiation_2(Page):
     form_model = 'player'
     form_fields = []
-    timeout_seconds = 120 # XXX
+    timeout_seconds = 120
 
     @staticmethod
     def is_displayed(player: Player):
@@ -1033,7 +1033,7 @@ class AlgoAversion(Page):
 class Thinking(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number > 1
+        return player.round_number > 1 and player.group.final_agree == 0
 
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
