@@ -575,7 +575,6 @@ def set_production_cost(group: Group):
 
 
 def define_payoffs_ai(player:Player):
-    print("SOno in LAST PAGE EEEEEEEEEEEEEEEEEEE")
     player.participant.ai_payoff_r1 = 90
     player.participant.ai_payoff_r2 = 90
     player.participant.ai_payoff_r3 = 90
