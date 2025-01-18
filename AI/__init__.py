@@ -179,6 +179,7 @@ class Player(BasePlayer):
         choices=[[1, 'Usted, y otro trabajador'],
                  [2, 'Usted, y un gerente'],
                  [0, 'Usted, otro trabajador y un gerente'],
+                 [0, 'Usted, y dos gerentes']
                  ], widget=widgets.RadioSelect)
     quiz3 = models.IntegerField(
         label="<b>Pregunta 3:</b> Si en una tarea usted y el otro trabajador deciden asignar todos sus 20 puntos a la cuenta grupal (y 0 a sus cuentas individuales) y tienen el 40% de la cuenta grupal, ¿cuáles son las ganancias totales para usted en esa tarea?",
@@ -188,9 +189,11 @@ class Player(BasePlayer):
                  [3, '40 puntos'],
                  ], widget=widgets.RadioSelect)
     quiz4 = models.IntegerField(
-        label="<b>Pregunta 4:</b> Usted sabrá el porcentaje que tiene el otro trabajador y el porcentaje que tiene el gerente de la cuenta grupal:",
-        choices=[[1, 'Verdadero'],
-                 [0, 'Falso'],
+        label="<b>Pregunta 4:</b> ¿Cuál de las siguientes afirmaciones es correcta?:",
+        choices=[[1, 'Usted sabrá el porcentaje de la cuenta grupal para usted, el otro trabajador y el gerente.'],
+                 [0, 'Usted solo sabrá su propio porcentaje de la cuenta grupal.'],
+                 [2, 'Usted conocerá los porcentajes para usted y el gerente, pero no para el otro trabajador.'],
+                 [3, 'Usted no tendrá ninguna información sobre los porcentajes de la cuenta grupal.'],
                  ], widget=widgets.RadioSelect)
     ## Quiz part II
     quiz5 = models.IntegerField(

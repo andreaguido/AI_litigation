@@ -1,16 +1,69 @@
 {{ block title }}Preguntas de comprensión{{ endblock }}
 
 {{ block scripts }}
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <script>
-function toggleText(){
-  var x = document.getElementById("Myid");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+// Function to toggle the modal popup
+function toggleText() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block"; // Show the modal
+}
+
+// Function to close the modal
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none"; // Hide the modal
 }
 </script>
+
+<style>
+/* Modal style */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust the width as necessary */
+}
+
+/* Close button inside modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Center the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Adjust this as needed */
+}
+</style>
 {{ endblock }}
 
 {{ block content }}
@@ -19,22 +72,28 @@ function toggleText(){
     <div class="card-body">
         Le pedimos que responda a las siguientes preguntas para comprobar que usted ha comprendido correctamente las instrucciones. Debe responder correctamente a las siguientes preguntas para poder continuar.
         <br><br>
-        En caso de que necesite volver a consultar las instrucciones, puede hacer clic en el botón situado en la parte inferior de la página.
-
+        En caso de que necesite volver a consultar las instrucciones, puede hacer clic en el botón de abajo.
     </div>
 </div>
-    {{ formfields }}
+
+<!-- Button to trigger modal -->
+<div class="button-container">
+    <input type="button" style="align-items: center" value="Haga clic aquí para leer las instrucciones" onclick="toggleText()">
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <!-- Here you can include the content for the instructions or any other content -->
+        {{ include_sibling 'tabs_reduced.html' }}
+    </div>
+</div>
+
+{{ formfields }}
 
 <p>Haga clic en "Siguiente" para continuar.</p>
 
-    {{ next_button }}
-
-<input type="button" style="align-items: center" value="Haga clic aquí para leer las instrucciones" onclick="toggleText()">
-
-<div id="Myid" style="display: none;">
-
-    {{ include_sibling 'tabs_reduced.html' }}
-
-</div>
+{{ next_button }}
 
 {{ endblock }}

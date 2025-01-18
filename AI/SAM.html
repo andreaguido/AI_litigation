@@ -51,16 +51,16 @@ x.forEach(function (radio) {
         {{ if subsession.round_number == 1 }}
 
         A continuación, le presentamos tres imágenes en referencia a su estado de ánimo.
-        Cada imagen contiene unas combinaciones de adjetivos que utilizará para calificar tus sentimientos sobre la imagen
+        Cada imagen contiene un listado de adjetivos que deberá utilizar para calificar sus sentimientos sobre la imagen
         respecto a su estado de ánimo actual. Algunas combinaciones de adjetivos pueden parecer inusuales, pero probablemente
         se sentirá más de una manera sobre una combinación que sobre otra. Por lo tanto, en cada línea, elija de 1 a 9 qué
         imagen representa más su estado de ánimo según los adjetivos indicados. <br><br>
 
-        Seleccione el número que mejor se adapte a tu estado de ánimo para cada imagen:
+        Seleccione el número que mejor se adapte a tu estado de ánimo:
 
         {{ else }}
 
-        Teniendo en cuenta el resultado de la negociación, seleccione el número que mejor se adapte a tu estado de ánimo para cada imagen:
+        Teniendo en cuenta el resultado de la negociación, elija de 1 a 9 qué imagen representa más  su estado de ánimo según los adjetivos indicados:
 
         {{ endif }}
 
@@ -292,6 +292,7 @@ x.forEach(function (radio) {
 <input type="hidden" name="SAM_2" id="SAM_2">
 <input type="hidden" name="SAM_3" id="SAM_3">
 
+<br><br>
  {{ next_button }}
 
 {{ endblock }}

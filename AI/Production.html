@@ -1,5 +1,5 @@
 {{ block title }}
-        {{ if player.round_number == 1 }} Parte I. Juego de producción {{ else }} Juego de producción (Ronda #{{ round }}) {{ endif }}
+        {{ if player.round_number == 1 }} Tome sus decisiones {{ else }} Tome sus decisiones (Ronda #{{ round }}) {{ endif }}
 {{ endblock }}
 
 {{ block scripts }}
@@ -87,6 +87,9 @@ updatedropprivate();
 populateDropdown(dropdownprivate1);
 populateDropdown(dropdownprivate2);
 </script>
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 {{ endblock }}
 
@@ -101,13 +104,17 @@ populateDropdown(dropdownprivate2);
         Puede encontrar un resumen de las instrucciones al final de esta página.
     </p>
     <p>
-        Recuerde que sus puntos finales para cada tarea están determinadas por la siguiente fórmula:
+        Recuerde que sus ganancias finales para cada tarea están determinadas por la siguiente fórmula:
     </p>
-        <b>Puntos finales = Puntos en su cuenta privada + su Porcentaje de Negociación *[2 * Total de puntos en la cuenta grupal]</b>
+        <b>$$\text{Sus ganancias} = \text{Puntos en su cuenta privada} + \text{Su porcentaje} \times (2 \times \text{suma total de puntos en la cuenta grupal})$$ </b>
     </p>
     <p>
         Una vez que usted y el otro trabajador hayan terminado sus decisiones, usted podrá ver sus ganancias en cada tarea.
     </p>
+    <p>
+        Recuerde que los porcentajes pueden ser distintos entre tareas y que los porcentajes pueden no sumar 100% entre los dos trabajadores.
+    </p>
+
     </div>
 </div>
 
@@ -126,12 +133,12 @@ populateDropdown(dropdownprivate2);
         <td>{{ player.production_cost_2 }} %</td>
     </tr>
     <tr>
-        <td><p>Puntos cuenta grupal</p></td>
+        <td><p>Puntos en la cuenta grupal</p></td>
         <td>{{ formfield 'prod_round_1' }}</td>
         <td>{{ formfield 'prod_round_2' }}</td>
     </tr>
     <tr>
-        <td><p>Puntos cuenta privada</p></td>
+        <td><p>Puntos en su cuenta privada</p></td>
         <td id="">
             <select id="private1" class="form-select">
                 <option value="-1">--------</option>

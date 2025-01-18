@@ -1,54 +1,74 @@
 <div class="tab">
     <h1>Parte II. Juego de Negociación-Producción</h1>
-
     <p>
-        En esta parte del experimento tendrán que tomar decisiones similares a las de la Parte I. Sin embargo, en esta parte tendrá que negociar primero con el otro trabajador el porcentaje que cada trabajador recibirá de las ganancias de la cuenta grupal, y el porcentaje del gerente, que de manera indirecta recibirá el resto.
+        Dispone de 15 minutos para leer las instrucciones de esta parte.
     </p>
     <p>
-        Jugará tres repeticiones (rondas) del juego de Negociación-Producción. En cada ronda, el ordenador le emparejará con otro trabajador y gerente diferente. Ninguno de ustedes podrá ver las decisiones o ganancias de las rondas anteriores.
+        En esta parte del experimento tendrán que tomar decisiones similares a las de la Parte I.
+        Sin embargo, en esta parte tendrá que negociar primero con el otro trabajador el porcentaje que cada uno de ustedes
+        recibirá de las ganancias de la cuenta grupal, y el porcentaje del gerente, que de manera indirecta recibirá el resto.
+    </p>
+    <p>
+        Jugará <b>cuatro repeticiones (rondas)</b> del juego de Negociación-Producción. En cada ronda, el ordenador le emparejará con otro trabajador y gerente diferente. Ninguno de ustedes podrá ver las decisiones o ganancias de las rondas anteriores.
     </p>
     <p>
         Una ronda del juego de Negociación-Producción se compone de 2 etapas:
         <ol>
-            <li><u>Etapa de negociación</u>: Primero, usted y el otro trabajador podrán negociar el porcentaje que cada uno de ustedes obtendrán de las ganancias de la cuenta grupal por cada una de las dos tareas de producción. El gerente obtendrá el porcentaje restante.</li>
-            <li><u>Etapa de producción</u>: En segundo lugar, usted y el otro trabajador tendrán que repartir 20 puntos entre la cuenta grupal y su cuenta privada para cada una de las dos tareas. Esta etapa es idéntica a la que usted realizó en la Parte I (juego de Producción), donde sus porcentajes estaban prefijados.</li>
+            <li><u>Etapa de negociación</u>: Primero, usted y el otro trabajador podrán negociar el porcentaje que cada
+                uno de ustedes obtendrán de las ganancias de la cuenta grupal por cada una de las dos tareas de producción.
+            </li>
+            <li><u>Etapa de producción</u>: En segundo lugar, usted y el otro trabajador tendrán que repartir 20 puntos
+                entre la cuenta grupal y su cuenta privada para cada una de las dos tareas. Esta etapa es idéntica a la
+                que usted realizó en la Parte I (juego de Producción), donde sus porcentajes estaban prefijados.</li>
         </ol>
     </p>
     <p>
-        Después de la etapa de producción, la ronda del juego de Negociación-Producción habrá finalizado y se calcularán sus puntos finales.
-    </p>
-    <p>
-        Haga clic en "Siguiente" para continuar.
+        Después de la etapa de producción, la ronda del juego de Negociación-Producción habrá finalizado y se calcularán sus ganancias.
     </p>
 
     <p>
-        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1">Siguiente</button>
     </p>
 
 </div>
 <div class="tab">
     <h1>Descripción de la etapa de negociación</h1>
 
-    <p>La etapa de Negociación tiene lugar antes de la etapa de Producción. En esta etapa, usted y el otro trabajador tendrán exactamente 2 minutos para negociar los porcentajes que ustedes recibirán de las ganancias de la cuenta grupal de cada una de las tareas de producción.</p>
-    <p>Usted y el otro trabajador pueden elegir entre varias opciones posibles. En cada una de estas opciones, usted podrá ver el porcentaje que usted recibirá, pero no cuál es el porcentaje para el otro trabajador ni para el gerente, y viceversa.</p>
+    <p>La etapa de Negociación tiene lugar antes de la etapa de Producción. En esta etapa, usted y el otro trabajador tendrán
+        exactamente 2 minutos para negociar los porcentajes que cada uno de ustedes recibirán de las ganancias de la cuenta grupal de cada una de las tareas de producción.</p>
+    <p>Usted y el otro trabajador pueden elegir entre varias opciones posibles. En cada una de estas opciones, usted podrá
+        ver el porcentaje que usted recibirá, pero no cuál es el porcentaje para el otro trabajador, y viceversa.</p>
 
     <p>
-        <b>Acuerdo y resolución:</b> Si llega a un acuerdo con el otro trabajador para cada una de las dos tareas dentro del tiempo indicado, su acuerdo se implementará. Es decir, los porcentajes que ustedes acordaron se utilizarán para determinar las ganancias de la cuenta grupal para cada uno.
+        <b>Acuerdo y resolución:</b> Si llega a un acuerdo con el otro trabajador para cada una de las dos tareas dentro
+        del tiempo indicado, su acuerdo se implementará. Es decir, los porcentajes que ustedes acordaron se utilizarán para
+        determinar las ganancias de la cuenta grupal para cada uno.
     </p>
 
-    <p>En el caso de que no se llegue a un acuerdo dentro del tiempo indicado, el gerente determinará los porcentajes que usted y el otro trabajador recibirán de la cuenta grupal de cada tarea.</p>
+    <p>En el caso de que no se llegue a un acuerdo dentro del tiempo indicado,
+        {{ if player.subsession.treatment == "A" }}
+            <b>un algoritmo entrenado con decisiones de gerentes</b>
+        {{ else }}
+            el gerente
+        {{ endif }}
+        determinará los porcentajes que usted y el otro trabajador recibirán de la cuenta grupal de cada tarea.</p>
 
     <p>
-        Haga clic en "Siguiente" para continuar.
-    </p>
-    <p>
-        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
-        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1">Siguiente</button>
     </p>
 </div>
 <div class="tab">
     <h1>Descripción de la etapa de negociación</h1>
-    <p>A continuación, se muestra una imagen de la pantalla de Negociación.</p>
+
+    <p>A continuación, se muestra un ejemplo de la pantalla de Negociación.</p>
+
+    <p>
+        La tabla muestra las nueve opciones posibles para cada tarea y los porcentajes de la cuenta grupal que usted recibiría para cada opción. En este ejemplo, sus porcentajes de la cuenta grupal de la Tarea 1 varían entre 25.5% y 34%, mientras que sus porcentajes de la Tarea 2 varían entre 26.0% y 49.5%.
+    </p>
+    <p>
+        El porcentaje que el otro trabajador recibe para cada opción puede ser diferente del suyo. Usted sólo podrá ver sus porcentajes y no los del otro trabajador. Igualmente, el otro trabajador sólo podrá ver sus propios porcentajes. Recuerde que los porcentajes no tienen por qué sumar 100%.
+    </p>
     <div class="card card-body card-header">
         <img src="{{ static 'negotiation.png'}}" width="100%">
     </div>
@@ -56,18 +76,21 @@
     <br><br>
 
     <div class="card card-body card-header">
-    <p><u>Cómo indicar su elección preferida</u>: En la tabla de negociación, usted puede señalar su opción preferida haciendo click en cualquiera de los botones de la columna “Mi opción”. En la columna “Otro", usted verá un icono de una persona señalando la decisión del otro trabajador.</p>
+    <p><u>Cómo indicar su elección preferida</u>: En la tabla de negociación, usted puede señalar su opción preferida haciendo clic en cualquiera de los botones de la columna “Mi opción”. En la columna “Otro", usted verá un icono de una persona señalando la decisión del otro trabajador.</p>
     </div>
 
     <br><br>
 
     <p>
-        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
-        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1">Siguiente</button>
     </p>
 </div> <!--- Screen 1 negotiation shows options--->
 <div class="tab">
-    <h1>Descripción de la etapa de negociación</h1>
+    <h1>Etapa de negociación</h1>
+
+    <p>Si en una tarea, las opciones seleccionadas por cada trabajador no coinciden, el encabezado de esa tarea estará con un color gris (ver la Tarea 1 en el ejemplo). Si usted y el otro trabajador han elegido la misma opción para una tarea, el encabezado de esa tarea estará en color verde. En cualquier momento usted puede cambiar la opción elegida para cada tarea, tanto si el otro jugador ha elegido la misma opción o no.</p>
+    <p>Nota: los porcentajes que aparecen en pantalla son los porcentajes que usted recibirá para cada opción. El porcentaje que el otro trabajador recibe para cada opción puede ser diferente del suyo. Usted sólo podrá ver sus porcentajes y no los del otro trabajador o del gerente. Igualmente, el otro trabajador sólo podrá ver sus propios porcentajes.</p>
 
     <div class="card card-body card-header">
         <img src="{{ static 'negotiation2.png'}}" width="100%">
@@ -75,20 +98,15 @@
     <br><br>
     <div class="card card-body card-header">
 
-        <p>Si en una tarea, las opciones seleccionadas por cada trabajador no coinciden, el encabezado de esa tarea estará con un color gris. Si usted y el otro trabajador han elegido la misma opción para una tarea, el encabezado de esa tarea estará en color verde. En cualquier momento usted puede cambiar la opción elegida para cada tarea, tanto si el otro jugador ha elegido la misma opción o no.</p>
-        <p>Nota: los porcentajes que aparecen en pantalla son los porcentajes que usted recibirá para cada opción. El porcentaje que el otro trabajador y el gerente reciben para cada opción puede ser diferente del suyo. Usted sólo podrá ver sus porcentajes y no los del otro trabajador o del gerente. Igualmente, el otro trabajador sólo podrá ver sus propios porcentajes.</p>
         <p>Durante esta fase de negociación, puede utilizar el cuadro de chat (parte inferior de la pantalla) para comunicarse con el otro trabajador. El gerente no tiene acceso a lo que se escriba en este chat o las decisiones que ustedes tomen.</p>
         <p>IMPORTANTE: En el chat no está permitido revelar su identidad, o cualquier tipo de información personal que pueda servir para identificarle, realizar amenazas o hacer comentarios groseros, discriminatorios o de mal gusto. Este tipo de comentarios supondrá la expulsión inmediata del experimento y no recibir ningún pago por la participación en el experimento. Al mismo tiempo, estos comentarios podrían ser trasladados a las autoridades competentes.</p>
         <p>Nota: los porcentajes que aparecen en pantalla son los porcentajes que usted recibirá para cada opción. El porcentaje que el otro trabajador y el gerente reciben para cada opción puede ser diferente del suyo. Usted sólo podrá ver sus porcentajes y no los del otro trabajador o del gerente. Igualmente, el otro trabajador sólo podrá ver sus propios porcentajes.</p>
     </div>
     <br><br>
-    <p>
-        Haga clic en "Siguiente" para continuar.
-    </p>
 
     <p>
-        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
-        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1">Siguiente</button>
     </p>
 </div> <!--- Screen 2 negotiation shows chat--->
 <div class="tab">
@@ -96,14 +114,19 @@
 
         <p>
             Recuerde que en el caso de que no se llegue a un acuerdo dentro del tiempo indicado,
-            el gerente determinará los porcentajes que usted y el otro trabajador recibirán de la cuenta grupal de cada tarea.
+            {{ if player.subsession.treatment == "A"}}
+                <b>un algoritmo entrenado con decisiones de gerentes</b>
+            {{ else }}
+                <b>el gerente</b>
+            {{ endif }}
+            determinará los porcentajes que usted y el otro trabajador recibirán de la cuenta grupal de cada tarea.
         </p>
     </div>
 
     <br><br>
 
     <div class="card card-body card-header">
-        <p>Ejemplo 1: CÓMO SE VERIA EN CASO DE ACUERDO EN LAS OPCIONES DE TODAS LAS TAREAS</p>
+        <p>Ejemplo 1: CÓMO SE VERÍA EN CASO DE ACUERDO EN LAS OPCIONES DE LAS DOS TAREAS</p>
     </div>
 
     <br><br>
@@ -113,7 +136,7 @@
     </div>
     <br><br>
     <div class="card card-body card-header">
-        <p>Ejemplo 2: CÓMO SE VERIA EN CASO DE DISACUERDO EN LAS OPCIONES DE TODAS LAS TAREAS</p>
+        <p>Ejemplo 2: CÓMO SE VERÍA EN CASO DE DESACUERDO EN LAS OPCIONES DE ALGUNA LAS DOS TAREAS</p>
     </div>
 
     <br><br>

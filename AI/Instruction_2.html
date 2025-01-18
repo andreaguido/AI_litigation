@@ -20,7 +20,9 @@
         let tab = tabs[i];
         if (i === activeTab) {
           tab.style.display = 'block';
-          tab.scrollIntoView();
+          // tab.scrollIntoView(); // uncomment if scroll to top of tab
+          tab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });  // Scroll to top of the page
         } else {
           tab.style.display = 'none';
         }

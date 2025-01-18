@@ -11,6 +11,10 @@
 
 {{ include_sibling 'tabs.html' }}
 
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <script>
 
     let activeTab = 0;
@@ -21,7 +25,9 @@
         let tab = tabs[i];
         if (i === activeTab) {
           tab.style.display = 'block';
-          tab.scrollIntoView();
+          // tab.scrollIntoView(); // uncomment if scroll to top of tab
+          tab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });  // Scroll to top of the page
         } else {
           tab.style.display = 'none';
         }
@@ -35,6 +41,7 @@
             showCurrentTabOnly();
         }
     }
+
 </script>
 
 {{ endblock }}

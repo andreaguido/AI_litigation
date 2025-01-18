@@ -11,40 +11,40 @@
         <th>Tarea 2</th>
     </tr>
     <tr>
-        <td>Puntos que usted asignó a la cuenta grupal :</td>
+        <td><b>Puntos que usted asignó a la cuenta grupal</b>:</td>
         <td>{{ player.prod_round_1 }}</td>
         <td>{{ player.prod_round_2 }}</td>
     </tr>
     <tr>
-        <td>Puntos que el otro trabajador asignó a la cuenta grupal :</td>
+        <td><b>Puntos que el otro trabajador asignó a la cuenta grupal</b>:</td>
         <td>{{ other_contribution_1 }}</td>
         <td>{{ other_contribution_2 }}</td>
     </tr>
     <tr>
-        <td>Puntos totales en la cuenta grupal :</td>
+        <td>Suma de puntos en la cuenta grupal:</td>
         <td>{{ g1 }}</td>
         <td>{{ g2 }}</td>
     </tr>
     <tr>
-        <td>Su porcentaje de la cuenta grupal :</td>
+        <td>Su porcentaje de la cuenta grupal:</td>
         <td>{{ player.production_cost_1 }} %</td>
         <td>{{ player.production_cost_2 }} %</td>
     </tr>
 
     <tr>
-        <td>Sus puntos de la cuenta grupal :</td>
+        <td>Sus ganancias de la cuenta grupal (su porcentaje x 2 x suma de puntos en la cuenta grupal) :</td>
         <td>{{ c1|to0 }} </td>
         <td>{{ c2|to0 }} </td>
     </tr>
 
     <tr>
-        <td>Sus puntos de la cuenta privada in your Private Account :</td>
+        <td>Puntos que usted asignó a su cuenta privada:</td>
         <td>{{ p1 }}</td>
         <td>{{ p2 }}</td>
     </tr>
 
     <tr>
-        <td><b>Sus puntos totales (cuenta grupal + privada)</b></td>
+        <td><b>Sus ganancias (puntos en su cuenta privada + sus ganancias de la cuenta grupal)</b></td>
         <td><b>{{ player.payoff_round_1|to0 }}</b></td>
         <td><b>{{ player.payoff_round_2|to0 }}</b></td>
     </tr>
