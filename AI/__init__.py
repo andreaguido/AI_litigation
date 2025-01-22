@@ -14,6 +14,7 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 5
     endowment = 20
+    puntos_quiz = 1
 
 
     ## P1
@@ -207,28 +208,28 @@ class Player(BasePlayer):
         label="<b>Pregunta 2:</b> ¿Cuántas repeticiones (rondas) jugarás del juego de Negociación-Producción?",
         choices=[[1, '1'],
                  [2, '2'],
-                 [0, '3'],
-                 [3, '4'],
+                 [3, '3'],
+                 [0, '4'],
                  ], widget=widgets.RadioSelect)
     quiz7 = models.IntegerField(
-        label="<b>Pregunta 3:</b> En la Etapa de Negociación, ¿cómo se determinan los porcentajes para la etapa de producción?",
-        choices=[[1, 'El gerente decide los porcentajes siempre.'],
+        label="<b>Pregunta 3:</b> En la Etapa de Negociación, ¿cómo se determinan los porcentajes para la Etapa de Producción?",
+        choices=[[1, 'El gerente siempre decide los porcentajes.'],
                  [2, 'Los trabajadores seleccionan sus propios porcentajes individualmente.'],
                  [3, 'Los porcentajes están predeterminados y no se pueden cambiar.'],
                  [0, 'Los trabajadores podrán negociar entre diferentes opciones.'],
                  ], widget=widgets.RadioSelect)
     quiz8_manager = models.IntegerField(
         label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
-        choices=[[0, 'Los porcentajes estarán predeterminados por el gerente.'],
+        choices=[[0, 'Los porcentajes serán determinados por el gerente.'],
                  [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
-                 [2, 'Ambos trabajadores serán expulsados del experimento.'],
+                 [2, 'El experimento terminará para usted y el otro.'],
                  [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
     quiz8_algo = models.IntegerField(
         label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
-        choices=[[0, 'Los porcentajes estarán predeterminados por un algoritmo diseñado para imitar las decisiones de los gerentes reales'],
+        choices=[[0, 'Los porcentajes serán determinados por un algoritmo diseñado para imitar las decisiones de los gerentes reales'],
                  [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
-                 [2, 'Ambos trabajadores serán expulsados del experimento.'],
+                 [2, 'El experimento terminará para usted y el otro trabajador.'],
                  [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
 
@@ -260,18 +261,18 @@ class Player(BasePlayer):
 
     # Distributive Justice
     distributive_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los puntos totales que usted ha ganado reflejan el esfuerzo que ha puesto en su trabajo?")
-    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Sus puntos totales son apropiado para el trabajo que ha completado?")
+    distributive_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Sus puntos totales son apropiados para el trabajo que ha completado?")
     distributive_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Sus puntos totales reflejan lo que ha contribuido al grupo?")
     distributive_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los puntos totales están justificados, dado su rendimiento?")
 
     # Perceived Justice
-    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar recompensas? ")
-    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha tenido influencia sobre las recompensas obtenidas a partir de dichos procedimientos?")
-    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas han sido aplicados consistentemente (de la misma manera a todos los empleados)?")
-    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas han sido aplicados de manera neutral (sin prejuicios)?")
-    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas se han basado en información precisa?")
-    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de solicitar las recompensas que merece según dichos procedimientos?")
-    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para dar recompensas se han basado en estándares éticos y morales?")
+    perceived_j_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de expresar sus puntos de vista y sentimientos ante los procedimientos utilizados para dar los puntos totales? ")
+    perceived_j_2 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha tenido influencia sobre los puntos totales obtenidas a partir de dichos procedimientos?")
+    perceived_j_3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para los puntos totales han sido aplicados consistentemente (de la misma manera a todos los trabajadores)?")
+    perceived_j_4 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para los puntos totales han sido aplicados de manera neutral (sin prejuicios)?")
+    perceived_j_5 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para los puntos totales se han basado en información precisa?")
+    perceived_j_6 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Ha sido capaz de solicitar los puntos totales que merece según dichos procedimientos?")
+    perceived_j_7 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,1],[2,2],[3,3],[4,4],[5,5]], label="¿Los procedimientos para los puntos totales se han basado en estándares éticos y morales?")
 
     # Algo Aversion
     algo_aversion_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"Totalmente en desacuerdo"],
@@ -393,24 +394,24 @@ class Player(BasePlayer):
                                                                                          [3,"Neutral"],
                                                                                          [4,"De acuerdo"],
                                                                                          [5,"Totalmente de acuerdo"]],
-                                                                                         label="<b>La inteligencia artificial se utiliza para espiar a las personas.</b>")
+                                                                                         label="La inteligencia artificial se utiliza para espiar a las personas.")
     algo_aversion_attention = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1,"Totalmente en desacuerdo"],
                                                                                          [2,"En desacuerdo"],
                                                                                          [3,"Neutral"],
                                                                                          [4,"De acuerdo"],
                                                                                          [5,"Totalmente de acuerdo"]],
-                                                  label="<b>Por favor, seleccione la opción 'De acuerdo' en este caso:</b>")
+                                                  label="Por favor, seleccione en este elemento la opción '4. De acuerdo':")
 
     # CRT
     crt_1 = models.FloatField(label='Una mesa y una silla cuestan 150 dólares en total. La mesa cuesta 100 '
                                       'dólares más que la silla. ¿Cuánto cuesta la silla? '
-                                      '(contesta abajo en dólares. Si necesita escribir decimales, utiliza "." y no ",").')
-    crt_2 = models.FloatField(label='Si 10 mecánicos tardan 10 horas en arreglar 10 coches, ¿cuánto tardarían 80 mecánicos en arreglar 80 coches? (contesta abajo en horas. Si necesita escribir decimales, utiliza "." y no ",").')
-    crt_3 = models.FloatField(label='Una nueva biblioteca está comprando libros para su colección. Cada semana se duplica el número de libros adquiridos. Si tardan 36 semanas en comprar todos los libros que necesitan, ¿cuánto tardaría la biblioteca en comprar la mitad de los libros que necesita? (contesta abajo en semanas. Si necesita escribir decimales, utiliza "." y no ",").')
-    crt_4 = models.FloatField(label='En el zoo, los leones comen una tonelada de carne cada 6 semanas, y los tigres comen otra tonelada de carne cada 12 semanas, ¿cuánto tiempo tardarían (leones y tigres) en comer una tonelada de carne juntos? (responde a continuación en semanas. Si necesita escribir decimales, utiliza "." y no ",").')
-    crt_5 = models.FloatField(label='Juan obtuvo la 25ª marca más rápida y la 25ª más lenta en una carrera. ¿Cuántas personas participaron en la carrera? (responde a continuación. Si necesita escribir decimales, utiliza "." y no ",".)')
-    crt_6 = models.FloatField(label='Un coleccionista de arte adquiere un cuadro famoso por 50 millones y lo vende por 60 millones. Unos años más tarde, el coleccionista vuelve a comprarlo por 70 millones, y finalmente lo vende por 80 millones. ¿Cuánto ha ganado en total el coleccionista? (contesta abajo en millones. Si necesita escribir decimales, utiliza "." y no ",").')
-    crt_7 = models.FloatField(label='María invirtió 12.000 dólares en bolsa en noviembre de 2013. Seis meses después, en mayo de 2014, las acciones que había comprado habían bajado un 50%. Afortunadamente para Mary, de mayo de 2014 a agosto de 2014, las acciones que había comprado subieron un 75%. En ese momento, Mary:',
+                                      '(Escriba abajo la cifra de dólares. Si necesita escribir decimales, utilice "." y no ",").')
+    crt_2 = models.FloatField(label='Si 10 mecánicos tardan 10 horas en arreglar 10 coches, ¿cuánto tardarían 80 mecánicos en arreglar 80 coches? (Escriba abajo la cifra de horas. Si necesita escribir decimales, utilice "." y no ",").')
+    crt_3 = models.FloatField(label='Una nueva biblioteca está comprando libros para su colección. Cada semana se duplica el número de libros adquiridos. Si tardan 36 semanas en comprar todos los libros que necesitan, ¿cuánto tardaría la biblioteca en comprar la mitad de los libros que necesita? (Escriba abajo la cifra de semanas. Si necesita escribir decimales, utilice "." y no ",").')
+    crt_4 = models.FloatField(label='En el zoo, los leones comen una tonelada de carne cada 6 semanas, y los tigres comen otra tonelada de carne cada 12 semanas, ¿cuánto tiempo tardarían (leones y tigres) en comer una tonelada de carne juntos? (Escriba abajo la cifra de semanas. Si necesita escribir decimales, utilice "." y no ",").')
+    crt_5 = models.FloatField(label='En una carrera, Juan obtuvo la 25ª marca más rápida y la 25ª más lenta en una carrera. ¿Cuántas personas participaron en la carrera? (Escriba abajo la cifra de personas. Si necesita escribir decimales, utilice "." y no ",".)')
+    crt_6 = models.FloatField(label='Un coleccionista de arte adquiere un cuadro famoso por 50 millones y lo vende por 60 millones. Unos años más tarde, el coleccionista vuelve a comprarlo por 70 millones, y finalmente lo vende por 80 millones. ¿Cuánto ha ganado en total el coleccionista? (Escriba abajo la cifra en millones. Si necesita escribir decimales, utilice "." y no ",").')
+    crt_7 = models.FloatField(label='María invirtió 12.000 dólares en bolsa en noviembre de 2013. Seis meses después, en mayo de 2014, las acciones que había comprado habían bajado un 50%. Afortunadamente para Maria, de mayo de 2014 a agosto de 2014, las acciones que había comprado subieron un 75%. En ese momento, Maria:',
                                 choices = [
                                     [1, "ha ganado dinero"],
                                     [2, "ha perdido dinero"],
@@ -421,8 +422,8 @@ class Player(BasePlayer):
     # Personality
     perso_1 = models.IntegerField(label="Extravertida, entusiasta", choices=[
         [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
@@ -430,80 +431,80 @@ class Player(BasePlayer):
     ])
     perso_2 = models.IntegerField(label="Que critica a los demás, conflictiva", choices=[
         [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_3 = models.IntegerField(label="Fiable, autodisciplinada", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_4 = models.IntegerField(label="Ansiosa, que fácilmente se altera", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_5 = models.IntegerField(label="Abierta a nuevas experiencias, compleja", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_6 = models.IntegerField(label="Reservada, callada", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_7 = models.IntegerField(label="Considerada, afectuosa", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_8 = models.IntegerField(label="Desorganizada, descuidada", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_9 = models.IntegerField(label="Tranquila, emocionalmente estable", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_10 = models.IntegerField(label="Convencional, poco creativa", choices=[
-        [1, "1. Totalmente en descuerdo"],
-        [2, "2. Muy en  descuerdo"],
-        [3, "3.	Algo en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. Muy en  desacuerdo"],
+        [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
         [5, "5.	Algo de acuerdo"],
         [6, "6.	Muy de acuerdo"],
@@ -516,6 +517,35 @@ class Player(BasePlayer):
     openness = models.FloatField()
     emotional_stability = models.FloatField()
     conscientiousness = models.FloatField()
+
+    ## Beliefs
+    beliefs = models.IntegerField()
+
+    ## Agreement with results
+    agreement_1 = models.IntegerField(label="", choices=[
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. En desacuerdo"],
+        [3, "3.	Ni de acuerdo ni en desacuerdo"],
+        [5, "4.	De acuerdo"],
+        [5, "5.	Totalmente de acuerdo"]
+        ]
+    )
+    agreement_2 = models.IntegerField(label="", choices=[
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. En desacuerdo"],
+        [3, "3.	Ni de acuerdo ni en desacuerdo"],
+        [5, "4.	De acuerdo"],
+        [5, "5.	Totalmente de acuerdo"]
+        ]
+    )
+    agreement_3 = models.IntegerField(label="", choices=[
+        [1, "1. Totalmente en desacuerdo"],
+        [2, "2. En desacuerdo"],
+        [3, "3.	Ni de acuerdo ni en desacuerdo"],
+        [5, "4.	De acuerdo"],
+        [5, "5.	Totalmente de acuerdo"]
+        ]
+    )
     pass
 
 # FUNCTIONS
@@ -547,7 +577,6 @@ pass
 def set_production_cost(group: Group):
     def get_cost(label, tasks):
         for task in tasks:
-            #print(task)
             if task['labels'] == label:
                 return task['cost']
         return None
@@ -561,13 +590,13 @@ def set_production_cost(group: Group):
                 p.production_cost_1 = get_cost(p.vote_1, Constants.task_1_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
                 p.production_cost_2 = get_cost(p.vote_2, Constants.task_2_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
     else:
-        temp = random.sample([0, 1], 1)[0]
-        print("This is temp ", temp)
+        temp = random.choices(population=[0,1], k=1, weights=[0.5, 0.5])[0] ## TODO : define these probabilities based on pre-experiment
+        print("This is temp ", temp) ## 0 if egalitarian, 1 if the maximizer
         group.random_draw_max_diff_1 = temp
         print("RANDOM DRAW : ", group.random_draw_max_diff_1)
         for p in group.get_players():
                 if p.role == "P1" and group.random_draw_max_diff_1 == 1:
-                    p.production_cost_1 = round(99/2, 2)
+                    p.production_cost_1 = round(99/2, 2) ## TODO : check these figures
                     p.production_cost_2 = round(51/2, 2)
                 elif p.role == "P2" and p.group.random_draw_max_diff_1 == 1:
                     p.production_cost_1 = round(51/2, 2)
@@ -577,7 +606,7 @@ def set_production_cost(group: Group):
                     p.production_cost_2 = round(63/2, 2)
 
 
-def define_payoffs_ai(player:Player):
+def define_payoffs_ai(player:Player): ## XXX this is not used anywhere
     player.participant.ai_payoff_r1 = 90
     player.participant.ai_payoff_r2 = 90
     player.participant.ai_payoff_r3 = 90
@@ -665,7 +694,7 @@ class Quiz_2(Page):
 class Intro_to_New_Round(Page):
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number)
+        return dict(round=player.round_number-1)
 
     def is_displayed(player: Player):
         return player.round_number > 1
@@ -689,7 +718,7 @@ class Production(Page):
 
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number)
+        return dict(round=player.round_number-1)
     pass
 
 class Feedback_production(Page):
@@ -733,7 +762,7 @@ class ResultsWaitPage(WaitPage):
 class Intro_to_production(Page):
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number)
+        return dict(round=player.round_number-1)
     pass
 
 class Negotiation_2(Page):
@@ -1029,6 +1058,13 @@ class AlgoAversion(Page):
         player.participant.ai_payoff_r2 = player.in_round(2).payoff
         player.participant.ai_payoff_r3 = player.in_round(3).payoff
         player.participant.ai_payoff_r4 = player.in_round(4).payoff
+        player.participant.ai_payoff_r5 = player.in_round(5).payoff
+
+        ## check if quiz 2 has been responded correctly
+        if player.in_round(1).quiz_attempts_2 == 0:
+            player.participant.ai_quiz_payoff = 1
+        else:
+            player.participant.ai_quiz_payoff = 0
 
     pass
 
@@ -1037,9 +1073,25 @@ class Thinking(Page):
     def is_displayed(player: Player):
         return player.round_number > 1 and player.group.final_agree == 0
 
+class Beliefs(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 2
+    form_model = 'player'
+    form_fields = ['beliefs']
+
+class Responsibility(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 2
+    form_model = 'player'
+    form_fields = ['agreement_1','agreement_2','agreement_3']
+
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
                  Intro_to_New_Round,                # R > 1 hence all
+                 Beliefs,                           # R == 2 ## todo : check this position
+                 Responsibility,                    # R == 2 ## todo : define this position
                  WaitNegotiation,                   # R > 1 hence all
                  Negotiation_2,                     # R > 1 hence all
                  ComputeProductionCosts,            # R > 1 hence all

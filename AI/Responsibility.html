@@ -1,0 +1,52 @@
+{{ block title }}{{ endblock }}
+{{ block content }}
+
+<div class="card bg-light">
+    <div class="card-body">
+        <p>Seleccione su grado de acuerdo o desacuerdo con cada una de las siguientes afirmaciones, utilizando una escala
+            de 1 a 5, donde 1 = totalmente en desacuerdo, 2 = en desacuerdo, 3 = neutral, 4 = de acuerdo y 5 = totalmente de acuerdo
+        </p>
+    </div>
+    <div class="card-body">
+        <p>
+            {{ if player.subsession.treatment == "M" }}
+                Los gerentes fueron responsables del resultado que usted ha recibido.
+            {{ else }}
+                El algoritmo fue responsable del resultado que usted ha recibido.
+            {{ endif }}
+        </p>
+        <p>
+            {{ formfield 'agreement_1' }}
+        </p>
+    </div>
+    <div class="card-body">
+        <p>
+            {{ if player.subsession.treatment == "M" }}
+                Su asignación de puntos a la cuenta grupal podría restaurar la equidad del resultado después de una decisión injusta tomada por el gerente.
+            {{ else }}
+                Su asignación de puntos a la cuenta grupal podría restaurar la equidad del resultado después de una decisión injusta tomada por el algoritmo.
+            {{ endif }}
+        </p>
+        <p>
+            {{ formfield 'agreement_2' }}
+        </p>
+    </div>
+    <div class="card-body">
+        <p>
+            {{ if player.subsession.treatment == "M" }}
+                El gerente es una figura con autoridad.
+            {{ else }}
+                El algoritmo es una figura con autoridad.
+            {{ endif }}
+        </p>
+        <p>
+            {{ formfield 'agreement_3' }}
+        </p>
+    </div>
+
+
+</div>
+
+    {{ next_button }}
+
+{{ endblock }}

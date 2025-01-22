@@ -1,28 +1,39 @@
 {{ block title }}
-    Final Results of the experiment
+
 {{ endblock }}
 
 {{ block content }}
+¡Felicidades! Ha terminado el experimento.
+
+<br>
+
+El cálculo de los puntos que ha obtenido por ronda es el siguiente
 
 <table class="table table-primary">
     <tr>
-        <th>Part I.</th><td>{{ payoff1 }}</td>
+        <th>Parte I.</th><td>{{ payoff1 }}</td>
     </tr>
     <tr>
-        <th>Part II. Period 1</th><td>{{ payoff2 }}</td>
+        <th>Parte I. Preguntas de comprensión</th><td>{{ quiz }}</td>
     </tr>
     <tr>
-        <th>Part II. Period 2</th><td>{{ payoff3 }}</td>
+        <th>Parte II. Ronda 1</th><td>{{ payoff2 }}</td>
     </tr>
     <tr>
-        <th>Part II. Period 3</th><td>{{ payoff4 }}</td>
+        <th>Part II. Ronda 2</th><td>{{ payoff3 }}</td>
+    </tr>
+    <tr>
+        <th>Part II. Ronda 3</th><td>{{ payoff4 }}</td>
+    </tr>
+    <tr>
+        <th>Part II. Ronda 4</th><td>{{ payoff5 }}</td>
     </tr>
     <tr>
         <th>Part III. </th><td>{{ dg }}</td>
     </tr>
 </table>
 
-
+Total payoff = {{ total }}
 {{ endblock }}
 
 

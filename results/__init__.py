@@ -23,8 +23,11 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     pass
 
-
 # PAGES
+
+class WaitingPage(WaitPage):
+    print("SUCAAAAA")
+    pass
 
 class Results(Page):
     @staticmethod
@@ -33,9 +36,12 @@ class Results(Page):
                     payoff2=player.participant.ai_payoff_r2,
                     payoff3=player.participant.ai_payoff_r3,
                     payoff4=player.participant.ai_payoff_r4,
-                    dg=player.participant.dg_payoff
+                    payoff5=player.participant.ai_payoff_r5,
+                    dg=player.participant.dg_payoff,
+                    quiz=player.participant.ai_quiz_payoff,
+                    total=player.participant.payoff
                             )
     pass
 
 
-page_sequence = [Results]
+page_sequence = [WaitingPage,Results]

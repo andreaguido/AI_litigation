@@ -1,0 +1,155 @@
+{{ block title }}
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+
+var dropdown1 = document.getElementById('private1');
+var dropdown2 = document.getElementById('private2');
+
+function updatedropprivate() {
+    // for private 1
+    var selectedIndex1 = dropdown1.selectedIndex;
+
+    if (selectedIndex1 > 0) {
+        var selectedvalue = dropdown1.options[dropdown1.selectedIndex].value;
+        dropdown2.value = 10-selectedvalue;
+        document.getElementById('beliefs').value=selectedvalue;
+    }
+    else {
+        dropdown1.value = -1;
+    }
+}
+
+function updatedropprivate2(){
+
+    // for private 2
+    var selectedIndex2 = dropdown2.selectedIndex;
+
+    if (selectedIndex2 > 0) {
+        var selectedvalue2 = dropdown2.options[dropdown2.selectedIndex].value;
+        dropdown1.value = 10-selectedvalue2;
+        document.getElementById('beliefs').value=10-selectedvalue2;
+    } else {
+        dropdown2.value = -1;
+    }
+}
+
+
+
+function populateDropdown(dropdown) {
+    for (var i = 0; i <= 10; i++) {
+        var option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        dropdown.appendChild(option);
+    }
+}
+
+
+dropdown1.addEventListener('change', updatedropprivate);
+dropdown2.addEventListener('change', updatedropprivate2);
+
+updatedropprivate();
+
+populateDropdown(dropdown1);
+populateDropdown(dropdown2);
+
+function click_send() {
+    var beliefs = document.getElementById('private1').value;
+    document.getElementById('id_beliefs') = beliefs;
+}
+</script>
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+{{ endblock }}
+
+{{ block content }}
+
+{{ if player.subsession.treatment == "A" }}
+
+    Antes de esta sesión, se pidió a gerentes con experiencia en negociaciones que determinará los porcentajes de la cuenta
+    grupal que los dos trabajadores recibirían en el caso de que no llegasen a un acuerdo en la etapa de negociación.
+    Los gerentes tuvieron que elegir entre dos opciones:
+
+    <ul>
+        <li>Opción 1:</li>
+        <ul>
+            <li>Trabajador A: 49.5% para la Tarea 1 y 25.5% para la Tarea 2</li>
+            <li>Trabajador B: 25.5% para la Tarea 1 y 49.5% para la Tarea 2</li>
+        </ul>
+        <li>Opción 2:</li>
+        <ul>
+            <li>Trabajador A: 31.5% para la Tarea 1 y 31.5% para la Tarea 2</li>
+            <li>Trabajador B: 31.5% para la Tarea 1 y 31.5% para la Tarea 2</li>
+        </ul>
+    </ul>
+
+
+    <br><br>
+        <div class="card card-header">
+            Entre 10 gerentes que tomaron esta decisión, ¿cuántos cree que eligieron cada opción?
+        </div>
+
+{{ else }}
+
+    En este experimento, el algoritmo ha sido diseñado para imitar las decisiones tomadas por gerentes con experiencia en entornos empresariales.
+    Antes de esta sesión, se pidió a gerentes con experiencia en negociaciones que determinará los porcentajes de la cuenta grupal que los dos trabajadores
+    recibirían en el caso de que no llegasen a un acuerdo en la etapa de negociación. Los gerentes tuvieron que elegir entre dos opciones:
+
+    <ul>
+        <li>Opción 1:</li>
+        <ul>
+            <li>Trabajador A: 49.5% para la Tarea 1 y 25.5% para la Tarea 2</li>
+            <li>Trabajador B: 25.5% para la Tarea 1 y 49.5% para la Tarea 2</li>
+        </ul>
+        <li>Opción 2:</li>
+        <ul>
+            <li>Trabajador A: 31.5% para la Tarea 1 y 31.5% para la Tarea 2</li>
+            <li>Trabajador B: 31.5% para la Tarea 1 y 31.5% para la Tarea 2</li>
+        </ul>
+    </ul>
+
+{{ endif }}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Opción 1</th>
+        <th>Opción 2</th>
+    </tr>
+    <tr>
+        <td><p></p></td>
+        <td id="">
+            <select id="private1" class="form-select">
+                <option value="-1">--------</option>
+            </select>
+        </td>
+        <td id="">
+            <select id="private2" class="form-select">
+                <option value="-1">--------</option>
+            </select>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+    <input type="hidden" id="beliefs" name="beliefs"/>
+
+{{ next_button }}
+
+<style>
+    table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+    td {word-wrap: break-word;}
+</style>
+
+{{ endblock }}

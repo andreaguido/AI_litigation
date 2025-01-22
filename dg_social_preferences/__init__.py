@@ -74,7 +74,7 @@ def creating_session(subsession):
 pass
 
 
-def compute_payoffs(player:Player):
+def compute_payoffs(player:Player): ### XXX not used
     player.participant.dg_payoff = player.earnings_social_preferences
 
 # PAGES
@@ -108,7 +108,7 @@ class ResultsWaitPage(WaitPage):
 
         for p in group.get_players():
             p.participant.dg_payoff = p.earnings_social_preferences
-
+            p.participant.payoff = p.participant.dg_payoff + p.participant.ai_payoff_r1 + p.participant.ai_quiz_payoff + p.participant.ai_payoff_r2 + p.participant.ai_payoff_r3 + p.participant.ai_payoff_r4 + p.participant.ai_payoff_r5 
     pass
 
 class SocialPreferences(Page):

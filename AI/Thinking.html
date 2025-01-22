@@ -3,6 +3,15 @@
 {{ endblock }}
 
 {{ block content }}
+{{ if player.subsession.treatment == "A" }}
+
+    Espere a la decisión del algoritmo
+
+{{ else }}
+
+    Espere a la decisión del gerente.
+
+{{ endif }}
 
 
     <div id="myProgress">

@@ -11,12 +11,15 @@
         Usted y el otro trabajador no han llegado a un acuerdo en la etapa de negociación.
     </div>
     <br><br>
-    <div class="card card-header" align="center">
-
-        Un algoritmo diseñado para imitar las decisiones tomadas por gerentes reales con experiencia práctica en entornos empresariales ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
-        <br><br>
-        Recuerde que el algoritmo no tiene acceso a las propuestas que usted y el otro trabajador hicieron en la etapa de negociación ni a los mensajes que intercambiaron en el chat.
+    <div class="card card-header">
+        Un algoritmo diseñado para imitar las decisiones tomadas por gerentes reales con experiencia práctica en entornos
+        empresariales ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
     </div>
+
+    <div class="card card-header">
+        Estos son los porcentajes que el algoritmo ha determinado para usted.
+    </div>
+
 
 {{ elif group.final_agree == 0 and player.subsession.treatment == "M" }}
 
@@ -24,25 +27,27 @@
         Usted y el otro trabajador no han llegado a un acuerdo en la etapa de negociación.
     </div>
     <br><br>
-    <div class="card card-header" align="center">
-        El gerente con experiencia en entornos empresariales ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
-        Recuerde que el gerente no tiene acceso a las propuestas que usted y el otro trabajador hicieron en la etapa de negociación ni a los mensajes que intercambiaron en el chat.
+    <div class="card card-header">
+        El gerente ha decidido los porcentajes de la cuenta grupal que usted y el otro trabajador recibirán en cada tarea.
+    </div>
+
+    <div class="card card-header">
+        Estos son los porcentajes que el gerente ha determinado para usted.
     </div>
 
 {{ else }}
 
-<br><br>
+    <div class="card card-header">
+        Usted y el otro trabajador han llegado a un acuerdo en la etapa de negociación.
+    </div>
 
-<div class="card card-header" align="center">
-    Usted y el otro trabajador han llegado a un acuerdo en la etapa de negociación.
-</div>
+    <br><br>
 
+    <div class="card card-header">
+        Estos son sus porcentajes de la cuenta grupal acordados.
+    </div>
 {{ endif }}
 
-<br><br>
-<div class="card card-header" align="center">
-    Los porcentajes que se muestran a continuación representan su porcentaje de la cuenta grupal de la siguiente etapa de producción. <br><br>
-</div>
 <br><br>
 <table class="table table-primary">
     <thead>
@@ -60,9 +65,6 @@
     </thead>
 </table>
 
-<p>
-    Haga click en “Siguiente” para pasar a la etapa de producción.
-</p>
 
 {{ next_button }}
 
