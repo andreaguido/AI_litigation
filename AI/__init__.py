@@ -590,8 +590,8 @@ def set_production_cost(group: Group):
                 p.production_cost_1 = get_cost(p.vote_1, Constants.task_1_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
                 p.production_cost_2 = get_cost(p.vote_2, Constants.task_2_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
     else:
-        temp = random.choices(population=[0,1], k=1, weights=[0.5, 0.5])[0] ## TODO : define these probabilities based on pre-experiment
-        print("This is temp ", temp) ## 0 if egalitarian, 1 if the maximizer
+        temp = random.choices(population=[0,1], k=1, weights=[0.55, 0.45])[0] ## TODO : define these probabilities based on pre-experiment
+        print("This is temp ", temp) ## 0 if distributive, 1 if the integrative
         group.random_draw_max_diff_1 = temp
         print("RANDOM DRAW : ", group.random_draw_max_diff_1)
         for p in group.get_players():
