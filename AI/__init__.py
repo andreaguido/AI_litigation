@@ -40,28 +40,6 @@ class Constants(BaseConstants):
         dict(cost=round(0.65/2*100, 1), labels = "H", task=2),
         dict(cost=round(0.67/2*100, 1), labels = "I", task=2)
     ]
-#    task_3_costs_P1 = [
-#        dict(cost=round(0.99/2*100, 0), labels = "A", task=3),
-#        dict(cost=round(0.91/2*100, 0), labels = "B", task=3),
-#        dict(cost=round(0.83/2*100, 0), labels = "C", task=3),
-#        dict(cost=round(0.75/2*100, 0), labels = "D", task=3),
-#        dict(cost=round(0.67/2*100, 0), labels = "E", task=3), #
-#        dict(cost=round(0.59/2*100, 0), labels = "F", task=3),
-#        dict(cost=round(0.51/2*100, 0), labels = "G", task=3),
-#        dict(cost=round(0.43/2*100, 0), labels = "H", task=3),
-#        dict(cost=round(0.35/2*100, 0), labels = "I", task=3)
-#    ]
-#    task_4_costs_P1 = [
-#        dict(cost=round(0.99/2*100, 0), labels = "A", task=4),
-#        dict(cost=round(0.93/2*100, 0), labels = "B", task=4),
-#        dict(cost=round(0.87/2*100, 0), labels = "C", task=4),
-#        dict(cost=round(0.81/2*100, 0), labels = "D", task=4),
-#        dict(cost=round(0.75/2*100, 0), labels = "E", task=4), #
-#        dict(cost=round(0.69/2*100, 0), labels = "F", task=4),
-#        dict(cost=round(0.63/2*100, 0), labels = "G", task=4),
-#        dict(cost=round(0.57/2*100, 0), labels = "H", task=4),
-#        dict(cost=round(0.51/2*100, 0), labels = "I", task=4)
-#    ]
 
     ## P2
     task_1_costs_P2 = [
@@ -86,29 +64,8 @@ class Constants(BaseConstants):
         dict(cost=round(0.57/2*100, 1), labels = "H", task=2),
         dict(cost=round(0.51/2*100, 1), labels = "I", task=2)
     ]
-#    task_3_costs_P2 = [
-#        dict(cost=round(0.35/2*100, 0), labels = "A", task=3),
-#        dict(cost=round(0.43/2*100, 0), labels = "B", task=3),
-#        dict(cost=round(0.51/2*100, 0), labels = "C", task=3),
-#        dict(cost=round(0.59/2*100, 0), labels = "D", task=3),
-#        dict(cost=round(0.67/2*100, 0), labels = "E", task=3), #
-#        dict(cost=round(0.75/2*100, 0), labels = "F", task=3),
-#        dict(cost=round(0.83/2*100, 0), labels = "G", task=3),
-#        dict(cost=round(0.91/2*100, 0), labels = "H", task=3),
-#        dict(cost=round(0.99/2*100, 0), labels = "I", task=3)
-#    ]
-#    task_4_costs_P2 = [
-#        dict(cost=round(0.51/2*100, 0), labels = "A", task=4),
-#        dict(cost=round(0.57/2*100, 0), labels = "B", task=4),
-#        dict(cost=round(0.63/2*100, 0), labels = "C", task=4),
-#        dict(cost=round(0.69/2*100, 0), labels = "D", task=4),
-#        dict(cost=round(0.75/2*100, 0), labels = "E", task=4), #
-#        dict(cost=round(0.81/2*100, 0), labels = "F", task=4),
-#        dict(cost=round(0.87/2*100, 0), labels = "G", task=4),
-#        dict(cost=round(0.93/2*100, 0), labels = "H", task=4),
-#        dict(cost=round(0.99/2*100, 0), labels = "I", task=4)
-#    ]
 
+    ## Role names
     P1_ROLE = "P1"
     P2_ROLE = "P2"
 
@@ -118,7 +75,7 @@ class Subsession(BaseSubsession):
     pass
 
 class Group(BaseGroup):
-    # XXX random draw for percentages when overriding negotiation
+    # random draw for percentages when overriding negotiation
     random_draw_max_diff_1 = models.IntegerField()
 
     #
@@ -126,7 +83,6 @@ class Group(BaseGroup):
     group_payoff_round_2 = models.FloatField()
     group_payoff_round_3 = models.FloatField()
     group_payoff_round_4 = models.FloatField()
-    #production_cost = models.FloatField(initial=1)
 
     # agreement on tasks
     agree_1 = models.IntegerField(initial= 0 )
@@ -138,27 +94,33 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    # amounts produced
+    ####################
+    # amounts produced #
+    ####################
     prod_round_1 = models.IntegerField(choices=range(0,21), label = "")
     prod_round_2 = models.IntegerField(choices=range(0,21), label = "")
-#    prod_round_3 = models.IntegerField(choices=range(0,21), label = "")
-#    prod_round_4 = models.IntegerField(choices=range(0,21), label = "")
-    # payoffs per task
+
+    ####################
+    # payoffs per task (be careful: round here means task)
+    ####################
     payoff_round_1 = models.FloatField()
     payoff_round_2 = models.FloatField()
-#    payoff_round_3 = models.FloatField()
-#    payoff_round_4 = models.FloatField()
-    # vote
+
+    ####################
+    # votes #
+    ####################
     vote_1 = models.StringField()
     vote_2 = models.StringField()
-#    vote_3 = models.StringField()
-#    vote_4 = models.StringField()
-    # production cost
+
+    ####################
+    # production cost (percentages)
+    ####################
     production_cost_1 = models.FloatField(initial=50)
     production_cost_2 = models.FloatField(initial=45)
-#    production_cost_3 = models.FloatField(initial=40)
-#    production_cost_4 = models.FloatField(initial=35)
+
+    ####################
     # survey variables
+    ####################
     joyful = models.IntegerField(label = "Joyful", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     afraid = models.IntegerField(label = "Afraid", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     elated = models.IntegerField(label = "Elated", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
@@ -166,7 +128,10 @@ class Player(BasePlayer):
     delighted = models.IntegerField(label = "Delighted", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     nervous = models.IntegerField(label = "Nervous", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
     happy = models.IntegerField(label = "Happy", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+
+    ####################
     # quiz variables
+    ####################
     ## Quiz part I
     quiz1 = models.IntegerField(
         label="<b>Pregunta 1:</b> ¿De cuántas partes consta el experimento?",
@@ -183,7 +148,7 @@ class Player(BasePlayer):
                  [0, 'Usted, y dos gerentes']
                  ], widget=widgets.RadioSelect)
     quiz3 = models.IntegerField(
-        label="<b>Pregunta 3:</b> Si en una tarea usted y el otro trabajador deciden asignar todos sus 20 puntos a la cuenta grupal (y 0 a sus cuentas individuales) y tienen el 40% de la cuenta grupal, ¿cuáles son las ganancias totales para usted en esa tarea?",
+        label="<b>Pregunta 3:</b> Si en una tarea usted y el otro trabajador deciden asignar sus 20 puntos a la cuenta grupal (y 0 a sus cuentas individuales) y tienen el 40% de la cuenta grupal, ¿cuáles son las ganancias totales para usted en esa tarea?",
         choices=[[1, '16 puntos'],
                  [2, '0 puntos'],
                  [0, '32 puntos'],
@@ -411,7 +376,7 @@ class Player(BasePlayer):
     crt_4 = models.FloatField(label='En el zoo, los leones comen una tonelada de carne cada 6 semanas, y los tigres comen otra tonelada de carne cada 12 semanas, ¿cuánto tiempo tardarían (leones y tigres) en comer una tonelada de carne juntos? (Escriba abajo la cifra de semanas. Si necesita escribir decimales, utilice "." y no ",").')
     crt_5 = models.FloatField(label='En una carrera, Juan obtuvo la 25ª marca más rápida y la 25ª más lenta en una carrera. ¿Cuántas personas participaron en la carrera? (Escriba abajo la cifra de personas. Si necesita escribir decimales, utilice "." y no ",".)')
     crt_6 = models.FloatField(label='Un coleccionista de arte adquiere un cuadro famoso por 50 millones y lo vende por 60 millones. Unos años más tarde, el coleccionista vuelve a comprarlo por 70 millones, y finalmente lo vende por 80 millones. ¿Cuánto ha ganado en total el coleccionista? (Escriba abajo la cifra en millones. Si necesita escribir decimales, utilice "." y no ",").')
-    crt_7 = models.FloatField(label='María invirtió 12.000 dólares en bolsa en noviembre de 2013. Seis meses después, en mayo de 2014, las acciones que había comprado habían bajado un 50%. Afortunadamente para Maria, de mayo de 2014 a agosto de 2014, las acciones que había comprado subieron un 75%. En ese momento, Maria:',
+    crt_7 = models.FloatField(label='María invirtió 12.000 dólares en bolsa en noviembre de 2013. Seis meses después, en mayo de 2014, las acciones que había comprado habían bajado un 50%. Afortunadamente para María, de mayo de 2014 a agosto de 2014, las acciones que había comprado subieron un 75%. En ese momento, María:',
                                 choices = [
                                     [1, "ha ganado dinero"],
                                     [2, "ha perdido dinero"],
@@ -421,7 +386,7 @@ class Player(BasePlayer):
 
     # Personality
     perso_1 = models.IntegerField(label="Extravertida, entusiasta", choices=[
-        [1, "1. Totalmente en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
         [2, "2. Muy en  desacuerdo"],
         [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
@@ -430,7 +395,7 @@ class Player(BasePlayer):
         [7, "7.	Totalmente de acuerdo"],
     ])
     perso_2 = models.IntegerField(label="Que critica a los demás, conflictiva", choices=[
-        [1, "1. Totalmente en descuerdo"],
+        [1, "1. Totalmente en desacuerdo"],
         [2, "2. Muy en  desacuerdo"],
         [3, "3.	Algo en desacuerdo"],
         [4, "4.	Ni de acuerdo ni en desacuerdo"],
@@ -557,7 +522,7 @@ pass
 
 
 def final_earnings(player):
-    payoff_sum = player.payoff_round_1 + player.payoff_round_2 #+ player.payoff_round_3 + player.payoff_round_4 # XXX
+    payoff_sum = player.payoff_round_1 + player.payoff_round_2
     player.payoff = payoff_sum
 pass
 
@@ -566,8 +531,6 @@ def set_payoffs(group: Group):
         for k in p.get_others_in_group():
             p.payoff_round_1 = Constants.endowment - p.prod_round_1 + p.production_cost_1*0.02*(p.prod_round_1 + k.prod_round_1)
             p.payoff_round_2 = Constants.endowment - p.prod_round_2 + p.production_cost_2*0.02*(p.prod_round_2 + k.prod_round_2)
-#            p.payoff_round_3 = Constants.endowment - p.prod_round_3 + p.production_cost_3*0.02*(p.prod_round_3 + k.prod_round_3)
-#            p.payoff_round_4 = Constants.endowment - p.prod_round_4 + p.production_cost_4*0.02*(p.prod_round_4 + k.prod_round_4)
             # compute sum of payoffs in a given round
             final_earnings(p)
 
@@ -590,13 +553,13 @@ def set_production_cost(group: Group):
                 p.production_cost_1 = get_cost(p.vote_1, Constants.task_1_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
                 p.production_cost_2 = get_cost(p.vote_2, Constants.task_2_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
     else:
-        temp = random.choices(population=[0,1], k=1, weights=[0.55, 0.45])[0] ## TODO : define these probabilities based on pre-experiment
+        temp = random.choices(population=[0,1], k=1, weights=[0.55, 0.45])[0]
         print("This is temp ", temp) ## 0 if distributive, 1 if the integrative
         group.random_draw_max_diff_1 = temp
         print("RANDOM DRAW : ", group.random_draw_max_diff_1)
         for p in group.get_players():
                 if p.role == "P1" and group.random_draw_max_diff_1 == 1:
-                    p.production_cost_1 = round(99/2, 2) ## TODO : check these figures
+                    p.production_cost_1 = round(99/2, 2)
                     p.production_cost_2 = round(51/2, 2)
                 elif p.role == "P2" and p.group.random_draw_max_diff_1 == 1:
                     p.production_cost_1 = round(51/2, 2)
@@ -727,30 +690,18 @@ class Feedback_production(Page):
             # points in the group account
             a1 = p.prod_round_1
             a2 = p.prod_round_2
-#            a3 = p.prod_round_3
-#            a4 = p.prod_round_4
         # total points in the group account (both players)
         g1 = a1 + player.prod_round_1
         g2 = a2 + player.prod_round_2
-#        g3 = a3 + player.prod_round_3
-#        g4 = a4 + player.prod_round_4
         return dict(
             other_contribution_1 = a1,
             other_contribution_2 = a2,
-#            other_contribution_3 = a3,
-#            other_contribution_4 = a4,
             g1 = g1,
             g2 = g2,
-#            g3 = g3,
-#            g4 = g4,
             p1 = 20 - player.prod_round_1,
             p2 = 20 - player.prod_round_2,
-#            p3 = 20 - player.prod_round_3,
-#            p4 = 20 - player.prod_round_4,
-            c1 = g1*2*player.production_cost_1/100,
-            c2 = g2*2*player.production_cost_2/100,
-#            c3 = g3*player.production_cost_3/100,
-#            c4 = g4*player.production_cost_4/100,
+            c1 = round(g1*2*player.production_cost_1/100,0),
+            c2 = round(g2*2*player.production_cost_2/100,0),
             round = player.round_number-1
         )
 
@@ -1076,22 +1027,20 @@ class Thinking(Page):
 class Beliefs(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == 2
+        return player.round_number == 5
     form_model = 'player'
     form_fields = ['beliefs']
 
 class Responsibility(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == 2
+        return player.round_number == 5
     form_model = 'player'
     form_fields = ['agreement_1','agreement_2','agreement_3']
 
 page_sequence = [Instruction,                       # R =1
                  Quiz,                              # R =1
                  Intro_to_New_Round,                # R > 1 hence all
-                 Beliefs,                           # R == 2 ## todo : check this position
-                 Responsibility,                    # R == 2 ## todo : define this position
                  WaitNegotiation,                   # R > 1 hence all
                  Negotiation_2,                     # R > 1 hence all
                  ComputeProductionCosts,            # R > 1 hence all
@@ -1103,10 +1052,12 @@ page_sequence = [Instruction,                       # R =1
                  ResultsWaitPage,                   # R all
                  Feedback_production,               # R all
                  Instruction_2,                     # R =1
-                 Quiz_2,                            # R =1 XXX
-                 DistributiveJustice,
-                 PerceivedJustice,
-                 Personality,
-                 AlgoAversion,
-                 CRT,
+                 Quiz_2,                            # R =1
+                 Beliefs,                           # R == 4
+                 Responsibility,                    # R == 4
+                 DistributiveJustice,               # R == 4
+                 PerceivedJustice,                  # R == 4
+                 Personality,                       # R == 4
+                 AlgoAversion,                      # R == 4
+                 CRT,                               # R == 4
                 ]

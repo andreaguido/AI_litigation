@@ -26,7 +26,6 @@ class Player(BasePlayer):
 # PAGES
 
 class WaitingPage(WaitPage):
-    print("SUCAAAAA")
     pass
 
 class Results(Page):
@@ -39,7 +38,9 @@ class Results(Page):
                     payoff5=player.participant.ai_payoff_r5,
                     dg=player.participant.dg_payoff,
                     quiz=player.participant.ai_quiz_payoff,
-                    total=player.participant.payoff
+                    total=player.participant.payoff,
+                    exc = player.subsession.session.config['real_world_currency_per_point'],
+                    total_euro=player.participant.payoff.to_real_world_currency(player.session)
                             )
     pass
 

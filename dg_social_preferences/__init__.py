@@ -35,7 +35,7 @@ class Player(BasePlayer):
     socialpreferences_1=models.StringField(choices=[
         ["A","Opción A: 10 puntos para usted; 10 puntos para el otro participante"],
         ["B","Opción B: 10 puntos para usted; 6 puntos para el otro participante"]
-        ], widget=widgets.RadioSelect, label="suca"
+        ], widget=widgets.RadioSelect, label=""
     )
     socialpreferences_2=models.StringField(choices=[
         ["A","Opción A: 10 puntos para usted; 10 puntos para el otro participante"],
