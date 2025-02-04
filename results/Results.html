@@ -3,11 +3,16 @@
 {{ endblock }}
 
 {{ block content }}
+
+<div class="card card-header">
 ¡Felicidades! Ha terminado el experimento.
 
-<br>
+    <br><br>
 
 El cálculo de los puntos que ha obtenido por ronda es el siguiente
+
+</div>
+
 
 <table class="table table-primary">
     <tr>
@@ -37,11 +42,11 @@ El cálculo de los puntos que ha obtenido por ronda es el siguiente
 
 Su pago final será el siguiente:
     <br><br>
-El total de puntos obtenidos en el experimento es (puntos): {{ total }}
+El total de puntos obtenidos en el experimento es: {{ total }}
     <br><br>
 Sobre la base de la equivalencia de 100 puntos = {{ exc }} €, ha ganado {{ total_euro }}.
     <br><br>
-La cuota de participación es = 4€
+La cuota de participación es = {{ fee }}
 
 </div>
 

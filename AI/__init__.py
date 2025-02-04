@@ -929,17 +929,14 @@ class AlgoAversion(Page):
         player.participant.ai_payoff_r4 = player.in_round(4).payoff
         player.participant.ai_payoff_r5 = player.in_round(5).payoff
 
+        player.participant.ai_quiz_payoff = 0
         ## check if quiz 2 has been responded correctly
         if player.in_round(1).quiz_attempts_2 == 1:
             player.participant.ai_quiz_payoff += 10
-        else:
-            player.participant.ai_quiz_payoff += 0
 
         ## check if quiz 2 has been responded correctly
         if player.in_round(1).quiz_attempts_1 == 1:
             player.participant.ai_quiz_payoff += 10
-        else:
-            player.participant.ai_quiz_payoff += 0
 
     pass
 

@@ -40,6 +40,7 @@ class Results(Page):
                     quiz=player.participant.ai_quiz_payoff,
                     total=player.participant.payoff,
                     exc = player.subsession.session.config['real_world_currency_per_point'],
+                    fee = player.subsession.session.config['participation_fee'],
                     total_euro=player.participant.payoff.to_real_world_currency(player.session)
                             )
     pass
