@@ -29,7 +29,7 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=0.06, participation_fee=0.00, doc=""
 )
 
 PARTICIPANT_FIELDS = ['ai_payoff_r1','ai_payoff_r2','ai_payoff_r3','ai_payoff_r4','ai_payoff_r5','dg_payoff', 'ai_quiz_payoff']

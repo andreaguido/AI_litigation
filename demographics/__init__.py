@@ -49,6 +49,13 @@ class Player(BasePlayer):
                                        ['STEM (Ciencia, Tecnología, Ingeniería o Matemáticas)','STEM (Ciencia, Tecnología, Ingeniería o Matemáticas)'],
                                        ['Otro','Otro']
                                    ])
+    experience_sector = models.StringField(label="¿En qué sector tiene experiencia profesional? Seleccione una opción.",
+                                 choices= [["Ninguno", "Ninguno"], ["Público", "Público"],
+                                           ["Privado", "Privado"],
+                                           ['Público y Privado','Público y Privado']])
+    experience_yrs = models.IntegerField(label="¿Cuántos años de experiencia profesional tiene? (escriba un número -redondeado sin decimales- desde 0 si no tiene experiencia en negociación hasta el número total de años que pueda tener). Por ejemplo: si son dos años y medio, escriba: 3.")
+
+
     pass
 
 
@@ -56,8 +63,7 @@ class Player(BasePlayer):
 
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'nationality', 'education', 'education_field']
-
+    form_fields = ['age', 'gender', 'nationality', 'education', 'education_field', 'experience_sector', 'experience_yrs']
 
 
 page_sequence = [Demographics]

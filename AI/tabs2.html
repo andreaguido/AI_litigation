@@ -1,12 +1,12 @@
 <div class="tab">
     <h1>Parte II. Juego de Negociación-Producción</h1>
     <p>
-        Dispone de 15 minutos para leer las instrucciones de esta parte.
+        Dispone de 10 minutos para leer las instrucciones de esta parte. Al final de las instrucciones, tendrá otro test de comprensión. Si acierta todas las preguntas a la primera, recibirá un punto adicional.
     </p>
     <p>
-        En esta parte del experimento tendrán que tomar decisiones similares a las de la Parte I.
+        En esta parte del experimento tendrá que tomar decisiones similares a las de la Parte I.
         Sin embargo, en esta parte tendrá que negociar primero con el otro trabajador el porcentaje que cada uno de ustedes
-        recibirá de las ganancias de la cuenta grupal, y el porcentaje del gerente, que de manera indirecta recibirá el resto.
+        recibirá de las ganancias de la cuenta grupal.
     </p>
     <p>
         Jugará <b>cuatro repeticiones (rondas)</b> del juego de Negociación-Producción. En cada ronda, el ordenador le emparejará con otro trabajador y gerente diferente. Ninguno de ustedes podrá ver las decisiones o ganancias de las rondas anteriores.
@@ -66,7 +66,7 @@
     <p>
         La tabla muestra las nueve opciones posibles para cada tarea y los porcentajes de la cuenta grupal que usted recibiría
         para cada opción. En este ejemplo, sus porcentajes de la cuenta grupal de la Tarea 1 varían entre 25.5% y 34%, mientras
-        que sus porcentajes de la Tarea 2 varían entre 26.0% y 49.5%.
+        que sus porcentajes de la Tarea 2 varían entre 25.5% y 49.5%.
     </p>
     <p>
         El porcentaje que el otro trabajador recibe para cada opción puede ser diferente del suyo. Usted sólo podrá ver
@@ -153,13 +153,14 @@
     <div class="card card-body card-header">
 
         <p>
-        Recuerde que en el caso de que no se llegue a un acuerdo en alguna de las tareas dentro del tiempo indicado,
+        En el caso de que usted y el otro trabajador no lleguen a un acuerdo sobre las opciones de cómo dividir las ganancias
+            de la cuenta grupal de ambas tareas en el tiempo indicado
             {{ if player.subsession.treatment == "A"}}
                 un <b>algoritmo entrenado con decisiones de gerentes</b>
             {{ else }}
                 el <b>gerente</b>
             {{ endif }}
-        determinará los porcentajes que usted y el otro trabajador recibirán de la cuenta grupal de cada tarea.
+        determinará los porcentajes que cada trabajador recibirá para la cuenta grupal.
         </p>
 
     </div>
@@ -184,10 +185,7 @@
 
     <br><br>
 
-    <p>
-        Haga clic en "Siguiente" para continuar.
-    </p>
-    <p>
+   <p>
         <button type="button" class="btn btn-primary btn-tab" data-offset="-1">Anterior</button>
         <button class="btn btn-primary">Siguiente</button>
     </p>

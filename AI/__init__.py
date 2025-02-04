@@ -187,7 +187,7 @@ class Player(BasePlayer):
         label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
         choices=[[0, 'Los porcentajes serán determinados por el gerente.'],
                  [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
-                 [2, 'El experimento terminará para usted y el otro.'],
+                 [2, 'El experimento terminará para usted y el otro trabajador.'],
                  [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
     quiz8_algo = models.IntegerField(
@@ -198,9 +198,9 @@ class Player(BasePlayer):
                  [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
                  ], widget=widgets.RadioSelect)
 
-    quiz_attempts_1 = models.IntegerField(initial=0)
+    quiz_attempts_1 = models.IntegerField(initial=1)
     timeout_quiz_1 = models.IntegerField(initial = 0)
-    quiz_attempts_2 = models.IntegerField(initial=0)
+    quiz_attempts_2 = models.IntegerField(initial=1)
     timeout_quiz_2 = models.IntegerField(initial = 0)
 
     education = models.StringField(label="¿Cuál es el nivel máximo de estudios terminados? Seleccione una opción.",
@@ -213,12 +213,6 @@ class Player(BasePlayer):
                                            ["Economía/ Empresa/ Gestión", "Economía/ Empresa/ Gestión"],
                                            ['STEM (Ciencia, Tecnología. Ingeniería o Matemáticas)','STEM (Ciencia, Tecnología. Ingeniería o Matemáticas)'],
                                            ['Otros','Otros']])
-    experience_sector = models.StringField(label="¿En qué sector tiene experiencia profesional? Seleccione una opción.",
-                                 choices= [["Ninguno", "Ninguno"], ["Público", "Público"],
-                                           ["Privado", "Privado"],
-                                           ['Público y Privado','Público y Privado']])
-    experience_yrs = models.IntegerField(label="¿Cuántos años de experiencia profesional tiene? (escriba un número -redondeado sin decimales- desde 0 si no tiene experiencia en negociación hasta el número total de años que pueda tener). Por ejemplo: si son dos años y medio, escriba: 3.")
-
     # SAM
     SAM_1 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[1,2,3,4,5,6,7,8,9])
     SAM_2 = models.IntegerField()
@@ -568,24 +562,22 @@ def set_production_cost(group: Group):
                     p.production_cost_1 = round(63/2, 2)
                     p.production_cost_2 = round(63/2, 2)
 
-
-def define_payoffs_ai(player:Player): ## XXX this is not used anywhere
-    player.participant.ai_payoff_r1 = 90
-    player.participant.ai_payoff_r2 = 90
-    player.participant.ai_payoff_r3 = 90
-    player.participant.ai_payoff_r4 = 90
 pass
 
 # PAGES
 class Instruction(Page):
-    timeout_seconds = 60*15
+    timeout_seconds = 60*10
     timer_text = 'Tiempo restante para leer las instrucciones:'
     def is_displayed(player: Player):
         return player.round_number == 1
+
+    def vars_for_template(player:Player):
+        return dict(currency=100*player.subsession.session.config['real_world_currency_per_point'])
+
     pass
 
 class Instruction_2(Page):
-    timeout_seconds = 60*15
+    timeout_seconds = 60*10
     timer_text = 'Tiempo restante para leer las instrucciones'
     def is_displayed(player: Player):
         return player.round_number == 1
@@ -797,57 +789,12 @@ class Negotiation_2(Page):
                 return
             player.vote_2 = vote_2
 
-        # task 3
-#        if 'vote_3' in data:
-#            ## if client sends vote in task 3
-#            try:
-#                vote_3 = (data['vote_3'])
-#            except Exception:
-#                print('Invalid message received 1', data['task'])
-#                return
-#
-#            ## check if vote is in costs (labels), if so assign to vote_1 (server)
-#            if player.role == "P1":
-#                task_costs = Constants.task_3_costs_P1
-#            else:
-#                task_costs = Constants.task_3_costs_P2
-#            costs = [d['labels'] for d in task_costs]
-#            if not vote_3 in costs:
-#                print('Invalid message received 2', vote_3, costs)
-#                return
-#            player.vote_3 = vote_3
-
-        # task 4
-#        if 'vote_4' in data:
-#            ## if client sends vote in task 3
-#            try:
-#                vote_4 = (data['vote_4'])
-#            except Exception:
-#                print('Invalid message received 1', data['task'])
-#                return
-#
-#            ## check if vote is in costs (labels), if so assign to vote_1 (server)
-#            if player.role == "P1":
-#                task_costs = Constants.task_4_costs_P1
-#            else:
-#                task_costs = Constants.task_4_costs_P2
-#            costs = [d['labels'] for d in task_costs]
-#            if not vote_4 in costs:
-#                print('Invalid message received 2', vote_4, costs)
-#                return
-#            player.vote_4 = vote_4
-
-        # counting majority (notice that im using the same labels for all task in loops)
         tallies_1 = {vote: 0 for vote in [d['labels'] for d in Constants.task_1_costs_P1]}
         tallies_2 = {vote: 0 for vote in [d['labels'] for d in Constants.task_1_costs_P1]}
-#        tallies_3 = {vote: 0 for vote in [d['labels'] for d in Constants.task_1_costs_P1]}
-#        tallies_4 = {vote: 0 for vote in [d['labels'] for d in Constants.task_1_costs_P1]}
         votes = []
         for p in players:
             vote_1 = p.field_maybe_none('vote_1')
             vote_2 = p.field_maybe_none('vote_2')
-#            vote_3 = p.field_maybe_none('vote_3')
-#            vote_4 = p.field_maybe_none('vote_4')
             if vote_1 is not None:
                 tallies_1[vote_1] += 1
                 if tallies_1[vote_1] >= 2:
@@ -860,41 +807,15 @@ class Negotiation_2(Page):
                     group.agree_2 = 1
                 else:
                     group.agree_2 = 0
-#            if vote_3 is not None:
-#                tallies_3[vote_3] += 1
-#                if tallies_3[vote_3] >= 2:
-#                    group.agree_3 = 1
-#                else:
-#                    group.agree_3 = 0
-#            if vote_4 is not None:
-#                tallies_4[vote_4] += 1
-#                if tallies_4[vote_4] >= 2:
-#                    group.agree_4 = 1
-#                else:
-#                    group.agree_4 = 0
-            votes.append([p.id_in_group, vote_1, vote_2])#, vote_3, vote_4])
-        print("Tallies :", votes, tallies_1, tallies_2)#, tallies_3, tallies_4)
 
-#        tallies_2 = {vote_2: 0 for vote_2 in costs}
-#            print("CIAOOOOOOOOOooo", tallies_2)
-#            votes = []
-#            for p in players:
-#                task = 2
-#                if vote_2 is not None:
-#                    tallies_2[vote_2] += 1
-#                    if tallies_2[vote_2] >= 2:
-#                        group.agree_2 = 1
-#                        #return {0: dict(finished=True)}
-#                    else:
-#                        group.agree_2 = 0
-#                votes.append([p.id_in_group, vote_2, task])
-#            return {0: dict(votes=votes)}#, votes_2=votes_2, tallies_2=tallies_2)}
+            votes.append([p.id_in_group, vote_1, vote_2])
+        print("Tallies :", votes, tallies_1, tallies_2)
 
-        if group.agree_1 == 1 and group.agree_2 ==1 : #and group.agree_3 == 1 and group.agree_4 == 1:
+        if group.agree_1 == 1 and group.agree_2 ==1 :
             group.final_agree = 1
             return {0: dict(finished=True)}
 
-        return {0: dict(votes=votes)}#, votes_2=votes_2, tallies_2=tallies_2)}
+        return {0: dict(votes=votes)}
 
     @staticmethod
     def error_message(player: Player, values):
@@ -903,9 +824,6 @@ class Negotiation_2(Page):
         if group.field_maybe_none('final_agree') is None:
             return "Not done with this page"
 
-#    @staticmethod
-#    def before_next_page(player: Player, timeout_happened):
-        # Here is the treatment XXX
     pass
 
 
@@ -1012,10 +930,16 @@ class AlgoAversion(Page):
         player.participant.ai_payoff_r5 = player.in_round(5).payoff
 
         ## check if quiz 2 has been responded correctly
-        if player.in_round(1).quiz_attempts_2 == 0:
-            player.participant.ai_quiz_payoff = 1
+        if player.in_round(1).quiz_attempts_2 == 1:
+            player.participant.ai_quiz_payoff += 10
         else:
-            player.participant.ai_quiz_payoff = 0
+            player.participant.ai_quiz_payoff += 0
+
+        ## check if quiz 2 has been responded correctly
+        if player.in_round(1).quiz_attempts_1 == 1:
+            player.participant.ai_quiz_payoff += 10
+        else:
+            player.participant.ai_quiz_payoff += 0
 
     pass
 
@@ -1047,7 +971,7 @@ page_sequence = [Instruction,                       # R =1
                  Thinking,
                  Feedback_Negotiation,              # R all - treatment human
                  SAM,
-                 Intro_to_production,               # R all
+                 #Intro_to_production,               # R all
                  Production,                        # R all
                  ResultsWaitPage,                   # R all
                  Feedback_production,               # R all

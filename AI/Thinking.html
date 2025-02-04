@@ -5,12 +5,14 @@
 {{ block content }}
 {{ if player.subsession.treatment == "A" }}
 
-    Espere a la decisión del algoritmo
+<div class="card card-body">
+    <b>Espere a la decisión del algoritmo</b>
+</div>
 
 {{ else }}
-
-    Espere a la decisión del gerente.
-
+<div class="card card-body">
+    <b>Espere a la decisión del gerente.</b>
+</div>
 {{ endif }}
 
 
