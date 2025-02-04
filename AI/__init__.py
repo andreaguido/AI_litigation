@@ -14,7 +14,7 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 5
     endowment = 20
-    puntos_quiz = 1
+    puntos_quiz = 10
 
 
     ## P1
@@ -192,7 +192,7 @@ class Player(BasePlayer):
                  ], widget=widgets.RadioSelect)
     quiz8_algo = models.IntegerField(
         label="<b>Pregunta 4:</b> ¿Qué pasa si usted y el otro trabajador no llegan a un acuerdo durante la Etapa de Negociación?",
-        choices=[[0, 'Los porcentajes serán determinados por un algoritmo diseñado para imitar las decisiones de los gerentes reales'],
+        choices=[[0, 'Los porcentajes serán determinados por un algoritmo diseñado para imitar las decisiones de los gerentes'],
                  [1, 'Usted y el otro trabajador ganarán 0 puntos y el gerente ganará 100 puntos.'],
                  [2, 'El experimento terminará para usted y el otro trabajador.'],
                  [3, 'Usted y el otro trabajador tendrán que reiniciar la negociación.'],
@@ -979,6 +979,6 @@ page_sequence = [Instruction,                       # R =1
                  DistributiveJustice,               # R == 4
                  PerceivedJustice,                  # R == 4
                  Personality,                       # R == 4
-                 AlgoAversion,                      # R == 4
+                 AlgoAversion,                      # R == 4 ## todo can you shuffle questions?
                  CRT,                               # R == 4
                 ]

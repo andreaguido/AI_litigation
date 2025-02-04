@@ -90,6 +90,8 @@ populateDropdown(dropdownprivate2);
 <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 {{ endblock }}
 
@@ -106,7 +108,16 @@ populateDropdown(dropdownprivate2);
     <p>
         Recuerde que sus ganancias para cada tarea están determinadas por la siguiente fórmula:
     </p>
-        <b>$$\text{Sus ganancias en una tarea} = \text{Puntos en su cuenta privada} + \text{Su porcentaje} \times (2 \times \text{suma total de puntos en la cuenta grupal de esa tarea})$$ </b>
+        <b>
+            <div class="latex">
+                \[
+                \begin{multline}
+                    \text{Sus ganancias en una tarea} = \text{Puntos en su cuenta privada} + \\
+                    \text{Su porcentaje} \times (2 \times \text{suma total de puntos en la cuenta grupal de esa tarea})
+                \end{multline}
+                \]
+            </div>
+        </b>
     </p>
     <p>
         Una vez que usted y el otro trabajador hayan terminado sus decisiones, usted podrá ver sus propias ganancias en cada tarea.
