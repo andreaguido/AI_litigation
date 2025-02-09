@@ -608,6 +608,10 @@ class Quiz(Page):
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
             player.timeout_quiz_1 = 1
+
+    def vars_for_template(player:Player):
+        return dict(currency=100*player.subsession.session.config['real_world_currency_per_point'])
+
     pass
 
 class Quiz_2(Page):
@@ -631,11 +635,11 @@ class Quiz_2(Page):
 
         for field_name in solutions:
             if values[field_name] != solutions[field_name]:
-                error_messages[field_name] = 'Wrong answer'
+                error_messages[field_name] = 'Respuesta incorrecta'
 
         if values != solutions:
             player.quiz_attempts_2 += 1
-            #return "One or more answers were incorrect. Please, try again."
+
         return error_messages
 
     def is_displayed(player: Player):
@@ -644,6 +648,7 @@ class Quiz_2(Page):
     def before_next_page(player: Player, timeout_happened):
         if timeout_happened:
             player.timeout_quiz_2 = 1
+
     pass
 
 class Intro_to_New_Round(Page):
@@ -673,7 +678,9 @@ class Production(Page):
 
     @staticmethod
     def vars_for_template(player:Player):
-        return dict(round=player.round_number-1)
+        return dict(round=player.round_number-1,
+                    currency=100*player.subsession.session.config['real_world_currency_per_point'])
+
     pass
 
 class Feedback_production(Page):

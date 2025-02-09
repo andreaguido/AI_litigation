@@ -1,19 +1,20 @@
-<div class="card card-body">
 <div class="tab">
     <h1>Instrucciones generales</h1>
     <br>
     <p>
         Este es un experimento sobre la toma de decisiones. <br>
-        En el experimento usted podrá ganar puntos en función de sus decisiones y de las decisiones de los demás.
+        En el experimento podrá ganar puntos en función de sus decisiones y de las decisiones de los demás.
         Así, diferentes participantes pueden ganar cantidades diferentes.
         Al final del experimento, los puntos que haya ganado se convertirán en dinero y usted recibirá este dinero en efectivo.
-        Por cada 100 puntos que haya ganado en el experimento usted recibirá 5 euros.
+        Por cada 100 puntos que haya ganado en el experimento usted recibirá {{ currency }} euros.
     </p>
     <p>
         El experimento se realizará a través del ordenador. Si tiene alguna duda en cualquier momento durante el
-        experimento, levante la mano y un monitor se acercará a resolver su duda.
+        experimento, levante la mano y un experimentalista se acercará a resolver su duda.
         <br><br>
-        Haga clic en "Siguiente" para continuar .
+        Dispone de 10 minutos para leer las instrucciones.
+        <br><br>
+        Haga clic en "Siguiente" para continuar.
     </p>
 </div>
 <div class="tab">
@@ -29,14 +30,8 @@
         En la última parte se le pedirá que responda algunas preguntas sencillas. Todas sus respuestas son confidenciales y sólo se utilizarán con fines de investigación y nunca estarán vinculadas a su nombre.
     </p>
     <p>
-        Por favor, lea detenidamente las instrucciones. Al final de las instrucciones, le haremos algunas preguntas para saber si las ha comprendido correctamente.
-    </p>
-    <p>
-        En la página siguiente, leerá las instrucciones de la Parte I del experimento.
-    </p>
-
-    <p>
-        Haga clic en "Siguiente" para continuar.
+        Por favor, lea detenidamente las instrucciones. Al final de las instrucciones de la Parte I del experimento, le haremos algunas preguntas para saber si las ha comprendido correctamente.
+        Si contesta correctamente a la primera todas las preguntas recibirá 10 puntos.
     </p>
 </div>
 <div class="tab">
@@ -49,16 +44,16 @@
         Usted y otra persona en esta sala tendrán el rol de trabajadores.
     </p>
     <p>
-        El gerente ha sido seleccionado al azar entre un grupo de gerentes reales con experiencia práctica en entornos empresariales.
+        El gerente ha sido seleccionado al azar entre un grupo de gerentes con experiencia práctica en entornos empresariales.
     </p>
     <p>
-        En el juego de producción hay dos tareas similares. Por cada tarea, usted tendrá que decidir cómo repartir 20 puntos entre una
+        En el juego de producción hay dos tareas similares. En cada tarea, usted tendrá que decidir cómo repartir 20 puntos entre una
         <u>cuenta grupal</u> y su <u>cuenta privada</u>.
     </p>
     <p>
         <b>Cuenta grupal:</b> Todos los puntos asignados (por usted y por el otro trabajador) a la cuenta grupal se
         multiplicarán por dos. Usted y el otro trabajador recibirán un porcentaje del total de puntos en esta <i>cuenta grupal</i> (después de ser multiplicada por dos).
-        Estos porcentajes los determinará el ordenador. Usted y el otro trabajador pueden recibir un porcentaje diferente
+        En la Parte I, estos porcentajes los determinará el ordenador. Usted y el otro trabajador pueden recibir un porcentaje diferente
         de la cuenta grupal, que no tienen por qué sumar 100, y que pueden ser diferentes en cada una de las dos tareas.
     <p>
         <b>Cuenta privada:</b> Los puntos que decida asignar a esta cuenta serán únicamente para usted. Estos puntos no se duplicarán.
@@ -73,13 +68,18 @@
     <p>
     Usted: sus ganancias totales de una tarea serán la suma de los puntos en su cuenta privada y su porcentaje de los puntos en la cuenta grupal.
 
-        <div align="center">
-            <b>$$\text{Sus ganancias} = \text{Puntos en su cuenta privada} + \text{Su porcentaje} \times (2 \times \text{suma total de puntos en la cuenta grupal de esa tarea})$$ </b>
+        <div class="latex">
+            \[
+            \begin{multline}
+                \text{Sus ganancias en una tarea} = \text{Puntos en su cuenta privada} + \\
+                \text{Su porcentaje} \times (2 \times \text{suma total de puntos en la cuenta grupal de esa tarea})
+            \end{multline}
+            \]
         </div>
     </p>
 
     <p>
-        Otro trabajador: las ganancias del otro trabajador se calculan de forma similar, sumando los puntos en su propia
+        El otro trabajador: las ganancias del otro trabajador se calculan de forma similar, sumando los puntos en su propia
         cuenta privada y su propio porcentaje de la cuenta grupal.
     </p>
 
@@ -260,5 +260,54 @@
     </div>
 
     <br>
-</div> <!--- Production Stage -->
-</div>
+</div> <!--- Production Stage - screen 1 XXX
+<div class="tab">
+    <h1>Parte I. Juego de producción – Cómo tomar sus decisiones</h1>
+    <p>
+        Aquí se muestra el porcentaje.
+        <br>
+        Recuerde que el otro trabajador y el gerente pueden recibir cantidades diferentes.
+    </p>
+    <div class="card card-body card-header">
+        <img src="{{ static 'screen_part_1_arrow1.png'}}" width="100%">
+    </div>
+    <p>
+
+    </p>
+    <p>
+        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+    </p>
+</div> <!--- Production Stage - screen 2 XXX
+<div class="tab">
+    <h1>Parte I. Juego de producción – Cómo tomar sus decisiones</h1>
+    <p>
+        En este menú desplegable usted deberá seleccionar cuántos de sus 20 puntos por tarea usted quiere asignar a la cuenta grupal para cada tarea.
+    </p>
+    <div class="card card-body card-header">
+        <img src="{{ static 'screen_part_1_arrow2.png'}}" width="100%">
+    </div>
+    <p>
+
+    </p>
+    <p>
+        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button type="button" class="btn-primary btn-tab" data-offset="1">Siguiente</button>
+    </p>
+</div> <!--- Production Stage - screen 2 XXX
+<div class="tab">
+    <h1>Parte I. Juego de producción – Cómo tomar sus decisiones</h1>
+    <p>
+        En este menú desplegable deberá seleccionar cuántos de sus 20 puntos por tarea quiere asignar a su cuenta privada para cada tarea.
+    </p>
+    <div class="card card-body card-header">
+        <img src="{{ static 'screen_part_1_arrow3.png'}}" width="100%">
+    </div>
+    <p>
+
+    </p>
+    <p>
+        <button type="button" class="btn-primary btn-tab" data-offset="-1">Anterior</button>
+        <button class="btn btn-primary">Siguiente</button>
+    </p>
+</div> <!--- Production Stage - screen 3 XXX -->

@@ -11,7 +11,6 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
-
 class Subsession(BaseSubsession):
     pass
 
@@ -26,6 +25,11 @@ class Player(BasePlayer):
 # PAGES
 
 class WaitingPage(WaitPage):
+    @staticmethod
+    def after_all_players_arrive(group:Group):
+        for p in group.get_players():
+            p.participant.payoff = p.participant.dg_payoff + p.participant.ai_payoff_r1 + p.participant.ai_quiz_payoff + p.participant.ai_payoff_r2 + p.participant.ai_payoff_r3 + p.participant.ai_payoff_r4 + p.participant.ai_payoff_r5
+
     pass
 
 class Results(Page):
@@ -39,9 +43,9 @@ class Results(Page):
                     dg=player.participant.dg_payoff,
                     quiz=player.participant.ai_quiz_payoff,
                     total=player.participant.payoff,
-                    exc = player.subsession.session.config['real_world_currency_per_point'],
+                    exc = round(100*player.subsession.session.config['real_world_currency_per_point'],0),
                     fee = player.subsession.session.config['participation_fee'],
-                    total_euro=player.participant.payoff.to_real_world_currency(player.session)
+                    total_euro=round(player.participant.payoff.to_real_world_currency(player.session),1)
                             )
     pass
 

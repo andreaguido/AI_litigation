@@ -9,7 +9,7 @@ Your app description
 
 class C(BaseConstants):
     NAME_IN_URL = 'dg_social_preferences'
-    PLAYERS_PER_GROUP = None
+    PLAYERS_PER_GROUP = 2
     NUM_ROUNDS = 1
     P1_ROLE = "Dictator"
     P2_ROLE = "Receiver"
@@ -25,7 +25,7 @@ class Group(BaseGroup):
     # pick one dictator
     #chosen_dictator = models.StringField(initial=random.sample(["P1", "P2"], 1)[0])
     # pick one question out of the six
-    chosen_question = models.IntegerField(initial=random.randint(1, 6))
+    chosen_question = models.IntegerField(initial=0)
     answer_dictator = models.StringField()
 
     pass
@@ -71,17 +71,20 @@ class Player(BasePlayer):
 def creating_session(subsession):
     subsession.group_randomly()
     print(subsession.get_group_matrix())
+
+    # get a question for each group
+    for g in subsession.get_groups():
+        g.chosen_question = random.randint(1, 6)
+
 pass
 
-
-def compute_payoffs(player:Player): ### XXX not used
-    player.participant.dg_payoff = player.earnings_social_preferences
 
 # PAGES
 
 class ResultsWaitPage(WaitPage):
     @staticmethod
     def after_all_players_arrive(group:Group):
+
         d = group.get_player_by_role("Dictator")
         r = group.get_player_by_role("Receiver")
 
@@ -108,7 +111,7 @@ class ResultsWaitPage(WaitPage):
 
         for p in group.get_players():
             p.participant.dg_payoff = p.earnings_social_preferences
-            p.participant.payoff = p.participant.dg_payoff + p.participant.ai_payoff_r1 + p.participant.ai_quiz_payoff + p.participant.ai_payoff_r2 + p.participant.ai_payoff_r3 + p.participant.ai_payoff_r4 + p.participant.ai_payoff_r5 
+            # Moved to results app p.participant.payoff = p.participant.dg_payoff + p.participant.ai_payoff_r1 + p.participant.ai_quiz_payoff + p.participant.ai_payoff_r2 + p.participant.ai_payoff_r3 + p.participant.ai_payoff_r4 + p.participant.ai_payoff_r5
     pass
 
 class SocialPreferences(Page):
