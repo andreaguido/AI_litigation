@@ -81,8 +81,6 @@ class Group(BaseGroup):
     # agreement on tasks
     agree_1 = models.IntegerField(initial= 0 )
     agree_2 = models.IntegerField(initial= 0 )
-    #agree_3 = models.IntegerField(initial= 0 )
-    #agree_4 = models.IntegerField(initial= 0 )
 
     # agreement in a given round
     final_agree = models.IntegerField(initial = 0 )
