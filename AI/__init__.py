@@ -78,18 +78,13 @@ class Group(BaseGroup):
     # random draw for percentages when overriding negotiation
     random_draw_max_diff_1 = models.IntegerField()
 
-    #
-    group_payoff_round_1 = models.FloatField()
-    group_payoff_round_2 = models.FloatField()
-    group_payoff_round_3 = models.FloatField()
-    group_payoff_round_4 = models.FloatField()
-
     # agreement on tasks
     agree_1 = models.IntegerField(initial= 0 )
     agree_2 = models.IntegerField(initial= 0 )
     agree_3 = models.IntegerField(initial= 0 )
     agree_4 = models.IntegerField(initial= 0 )
 
+    # agreement in a given round
     final_agree = models.IntegerField(initial = 0 )
     pass
 
@@ -121,13 +116,13 @@ class Player(BasePlayer):
     ####################
     # survey variables
     ####################
-    joyful = models.IntegerField(label = "Joyful", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    afraid = models.IntegerField(label = "Afraid", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    elated = models.IntegerField(label = "Elated", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    scared = models.IntegerField(label = "Scared", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    delighted = models.IntegerField(label = "Delighted", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    nervous = models.IntegerField(label = "Nervous", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
-    happy = models.IntegerField(label = "Happy", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #joyful = models.IntegerField(label = "Joyful", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #afraid = models.IntegerField(label = "Afraid", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #elated = models.IntegerField(label = "Elated", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #scared = models.IntegerField(label = "Scared", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #delighted = models.IntegerField(label = "Delighted", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #nervous = models.IntegerField(label = "Nervous", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
+    #happy = models.IntegerField(label = "Happy", choices=range(1, 10), widget=widgets.RadioSelectHorizontal)
 
     ####################
     # quiz variables
@@ -548,9 +543,9 @@ def set_production_cost(group: Group):
                 p.production_cost_2 = get_cost(p.vote_2, Constants.task_2_costs_P2) #Constants.task_1_costs_P2['labels'==p.vote_1]['cost']
     else:
         temp = random.choices(population=[0,1], k=1, weights=[0.55, 0.45])[0]
-        print("This is temp ", temp) ## 0 if distributive, 1 if the integrative
+        #print("This is temp ", temp) ## 0 if distributive, 1 if the integrative
         group.random_draw_max_diff_1 = temp
-        print("RANDOM DRAW : ", group.random_draw_max_diff_1)
+        #print("RANDOM DRAW : ", group.random_draw_max_diff_1)
         for p in group.get_players():
                 if p.role == "P1" and group.random_draw_max_diff_1 == 1:
                     p.production_cost_1 = round(99/2, 2)
@@ -833,7 +828,6 @@ class Negotiation_2(Page):
 
     pass
 
-
 class ComputeProductionCosts(WaitPage):
     @staticmethod
     def is_displayed(player: Player):
@@ -853,7 +847,6 @@ class Survey_E(Page):
     def is_displayed(player:Player):
         return player.round_number > 1
 pass
-
 
 class Feedback_Negotiation(Page):
     @staticmethod
